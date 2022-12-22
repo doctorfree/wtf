@@ -48,7 +48,7 @@ import (
 	"github.com/doctorfree/wtf/modules/kubernetes"
 	"github.com/doctorfree/wtf/modules/logger"
 	"github.com/doctorfree/wtf/modules/mercurial"
-	"github.com/doctorfree/wtf/modules/moon"
+	"github.com/doctorfree/wtf/modules/lunarphase"
 	"github.com/doctorfree/wtf/modules/nbascore"
 	"github.com/doctorfree/wtf/modules/newrelic"
 	"github.com/doctorfree/wtf/modules/nextbus"
@@ -247,9 +247,9 @@ func MakeWidget(
 	case "mercurial":
 		settings := mercurial.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = mercurial.NewWidget(tviewApp, redrawChan, pages, settings)
-	case "moon":
-		settings := moon.NewSettingsFromYAML(moduleName, moduleConfig, config)
-		widget = moon.NewWidget(tviewApp, redrawChan, pages, settings)
+	case "lunarphase":
+		settings := lunarphase.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = lunarphase.NewWidget(tviewApp, redrawChan, pages, settings)
 	case "mempool":
 		settings := mempool.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = mempool.NewWidget(tviewApp, redrawChan, pages, settings)
