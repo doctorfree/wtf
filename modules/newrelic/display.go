@@ -3,9 +3,9 @@ package newrelic
 import (
 	"fmt"
 
-	nr "github.com/wtfutil/wtf/modules/newrelic/client"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/wtf"
+	nr "github.com/doctorfree/wtf/modules/newrelic/client"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 func (widget *Widget) content() (string, string, bool) {

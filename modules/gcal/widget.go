@@ -2,7 +2,7 @@ package gcal
 
 import (
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 type Widget struct {

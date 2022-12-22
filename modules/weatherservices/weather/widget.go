@@ -3,8 +3,8 @@ package weather
 import (
 	owm "github.com/briandowns/openweathermap"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget is the container for weather data.

@@ -5,7 +5,7 @@ import (
 	"strconv"
 
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/cfg"
+	"github.com/doctorfree/wtf/cfg"
 )
 
 const (

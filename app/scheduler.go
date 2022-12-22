@@ -3,7 +3,7 @@ package app
 import (
 	"time"
 
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // Schedule kicks off the first refresh of a module's data and then queues the rest of the

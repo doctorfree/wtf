@@ -4,8 +4,8 @@ import (
 	"log"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/modules/todo_plus/backend"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/modules/todo_plus/backend"
+	"github.com/doctorfree/wtf/view"
 )
 
 // A Widget represents a Todoist widget

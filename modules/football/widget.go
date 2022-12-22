@@ -9,7 +9,7 @@ import (
 	"strings"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 var leagueID = map[string]leagueInfo{

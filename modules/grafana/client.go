@@ -8,7 +8,7 @@ import (
 	"net/http"
 	"sort"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 type AlertState int

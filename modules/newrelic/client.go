@@ -1,7 +1,7 @@
 package newrelic
 
 import (
-	nr "github.com/wtfutil/wtf/modules/newrelic/client"
+	nr "github.com/doctorfree/wtf/modules/newrelic/client"
 )
 
 type Client2 struct {

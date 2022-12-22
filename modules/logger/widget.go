@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/rivo/tview"
-	log "github.com/wtfutil/wtf/logger"
-	"github.com/wtfutil/wtf/view"
+	log "github.com/doctorfree/wtf/logger"
+	"github.com/doctorfree/wtf/view"
 )
 
 const (

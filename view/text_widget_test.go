@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/cfg"
+	"github.com/doctorfree/wtf/cfg"
 )
 
 func testTextWidget() TextWidget {

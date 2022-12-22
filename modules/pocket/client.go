@@ -86,7 +86,7 @@ func (*Client) request(req request, result interface{}) error {
 	for key, value := range req.headers {
 		request.Header.Add(key, value)
 	}
-	request.Header.Set("User-Agent", "wtfutil (https://github.com/wtfutil/wtf)")
+	request.Header.Set("User-Agent", "wtfutil (https://github.com/doctorfree/wtf)")
 
 	resp, err := http.DefaultClient.Do(request)
 

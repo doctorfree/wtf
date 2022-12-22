@@ -5,10 +5,10 @@ go:
 
 before_install:
   # Make sure travis builds work for forks
-  - mkdir -p $TRAVIS_BUILD_DIR $GOPATH/src/github.com/wtfutil
-  - test ! -d $GOPATH/src/github.com/wtfutil/wtf && mv $TRAVIS_BUILD_DIR $GOPATH/src/github.com/wtfutil/wtf || true
-  - export TRAVIS_BUILD_DIR=$HOME/gopath/src/github.com/wtfutil/wtf
-  - cd $HOME/gopath/src/github.com/wtfutil/wtf
+  - mkdir -p $TRAVIS_BUILD_DIR $GOPATH/src/github.com/doctorfree
+  - test ! -d $GOPATH/src/github.com/doctorfree/wtf && mv $TRAVIS_BUILD_DIR $GOPATH/src/github.com/doctorfree/wtf || true
+  - export TRAVIS_BUILD_DIR=$HOME/gopath/src/github.com/doctorfree/wtf
+  - cd $HOME/gopath/src/github.com/doctorfree/wtf
   - export GOPROXY="https://proxy.golang.org,direct"
 
-script: go get ./... && ./scripts/check-uncommitted-vendor-files.sh && go test -v github.com/wtfutil/wtf/...
+script: go get ./... && ./scripts/check-uncommitted-vendor-files.sh && go test -v github.com/doctorfree/wtf/...

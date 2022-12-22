@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/olebedev/config"
-	"github.com/wtfutil/todoist"
+	"github.com/doctorfree/todoist"
 )
 
 type Todoist struct {

@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/gdamore/tcell/v2"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/utils"
 	"golang.org/x/text/cases"
 	"golang.org/x/text/language"
 )

@@ -2,15 +2,15 @@ FROM golang:1.19 as build
 
 ARG version=master
 
-RUN git clone https://github.com/wtfutil/wtf.git $GOPATH/src/github.com/wtfutil/wtf && \
-    cd $GOPATH/src/github.com/wtfutil/wtf && \
+RUN git clone https://github.com/doctorfree/wtf.git $GOPATH/src/github.com/doctorfree/wtf && \
+    cd $GOPATH/src/github.com/doctorfree/wtf && \
     git checkout $version
 
 ENV GOPROXY=https://proxy.golang.org,direct
 ENV GO111MODULE=on
 ENV GOSUMDB=off
 
-WORKDIR $GOPATH/src/github.com/wtfutil/wtf
+WORKDIR $GOPATH/src/github.com/doctorfree/wtf
 
 ENV PATH=$PATH:./bin
 

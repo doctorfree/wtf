@@ -5,7 +5,7 @@ import (
 	"os/exec"
 	"strings"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 type GitRepo struct {

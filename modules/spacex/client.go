@@ -3,7 +3,7 @@ package spacex
 import (
 	"net/http"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 const (

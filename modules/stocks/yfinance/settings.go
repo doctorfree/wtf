@@ -2,8 +2,8 @@ package yfinance
 
 import (
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/utils"
 )
 
 const (

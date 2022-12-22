@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"net/url"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 type Client struct {

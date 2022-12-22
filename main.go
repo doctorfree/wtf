@@ -14,11 +14,11 @@ import (
 	"github.com/logrusorgru/aurora"
 	"github.com/pkg/profile"
 
-	"github.com/wtfutil/wtf/app"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/flags"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/app"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/flags"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 /* -------------------- Main -------------------- */

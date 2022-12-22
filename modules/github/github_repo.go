@@ -6,7 +6,7 @@ import (
 	"net/http"
 
 	ghb "github.com/google/go-github/v32/github"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 	"golang.org/x/oauth2"
 )
 

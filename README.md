@@ -3,7 +3,7 @@
 </p>
 
 <p align="left">
-    <a href="https://goreportcard.com/report/github.com/wtfutil/wtf"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/wtfutil/wtf"></a>
+    <a href="https://goreportcard.com/report/github.com/doctorfree/wtf"><img alt="Go Report Card" src="https://goreportcard.com/badge/github.com/doctorfree/wtf"></a>
     <a href="https://twitter.com/wtfutil"><img alt="Twitter" src="https://img.shields.io/badge/follow-on%20twitter-blue.svg"></a>
     <a href="https://deepsource.io/gh/wtfutil/wtf/?ref=repository-badge}" target="_blank"><img alt="DeepSource" title="DeepSource" src="https://deepsource.io/gh/wtfutil/wtf.svg/?label=active+issues&show_trend=true&token=kSJAbELF2TA7rEHjK6RPUrj5"/></a>
 </p>
@@ -84,7 +84,7 @@ wtfutil
 
 ### Installing a Binary
 
-[Download the latest binary](https://github.com/wtfutil/wtf/releases) from GitHub.
+[Download the latest binary](https://github.com/doctorfree/wtf/releases) from GitHub.
 
 WTF is a stand-alone binary. Once downloaded, copy it to a location you can run executables from (ie: `/usr/local/bin/`), and set the permissions accordingly:
 
@@ -108,8 +108,8 @@ export GOSUMDB=off
 # Enable Go modules
 export GO111MODULE=on
 
-go get -u github.com/wtfutil/wtf
-cd $GOPATH/src/github.com/wtfutil/wtf
+go get -u github.com/doctorfree/wtf
+cd $GOPATH/src/github.com/doctorfree/wtf
 make install
 make run
 ```
@@ -120,8 +120,8 @@ If you want to run the build command from a folder that is not in your `$GOPATH`
 # Set the Go proxy
 export GOPROXY="https://proxy.golang.org,direct"
 
-go get -u github.com/wtfutil/wtf
-cd $GOPATH/src/github.com/wtfutil/wtf
+go get -u github.com/doctorfree/wtf
+cd $GOPATH/src/github.com/doctorfree/wtf
 make install
 make run
 ```
@@ -170,7 +170,7 @@ docker run -it -v path/to/config.yml:/config/config.yml wtfutil --config=/config
 
 ### GitHub Discussions
 
-Conversations, ideas, discussions are done on [GitHub Discussions](https://github.com/wtfutil/wtf/discussions).
+Conversations, ideas, discussions are done on [GitHub Discussions](https://github.com/doctorfree/wtf/discussions).
 
 Formerly they were on Slack; that channel has been deprecated.
 
@@ -222,7 +222,7 @@ Don't worry if you've never written Go before, or never contributed to an open s
 
 ## Contributing to the Documentation
 
-Documentation now lives in its own repository here: [https://github.com/wtfutil/wtfdocs](https://github.com/wtfutil/wtfdocs).
+Documentation now lives in its own repository here: [https://github.com/doctorfree/wtfdocs](https://github.com/doctorfree/wtfdocs).
 
 Please make all additions and updates to documentation in that repository.
 

@@ -5,8 +5,8 @@ import (
 	"runtime"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/view"
 )
 
 const (

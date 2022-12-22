@@ -9,7 +9,7 @@ name = "go"
 enabled = true
 
   [analyzers.meta]
-  import_root = "github.com/wtfutil/wtf"
+  import_root = "github.com/doctorfree/wtf"
 
 [[analyzers]]
 name = "test-coverage"

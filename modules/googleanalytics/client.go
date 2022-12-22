@@ -9,7 +9,7 @@ import (
 	"path/filepath"
 	"time"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 	"golang.org/x/oauth2/google"
 	gaV3 "google.golang.org/api/analytics/v3"
 	gaV4 "google.golang.org/api/analyticsreporting/v4"

@@ -4,7 +4,7 @@ import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
-	"github.com/wtfutil/wtf/cfg"
+	"github.com/doctorfree/wtf/cfg"
 	"google.golang.org/api/calendar/v3"
 )
 

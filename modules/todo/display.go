@@ -6,8 +6,8 @@ import (
 	"time"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/checklist"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/checklist"
+	"github.com/doctorfree/wtf/utils"
 )
 
 func (widget *Widget) display() {

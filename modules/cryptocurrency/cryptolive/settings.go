@@ -2,9 +2,9 @@ package cryptolive
 
 import (
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/modules/cryptocurrency/cryptolive/price"
-	"github.com/wtfutil/wtf/modules/cryptocurrency/cryptolive/toplist"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/modules/cryptocurrency/cryptolive/price"
+	"github.com/doctorfree/wtf/modules/cryptocurrency/cryptolive/toplist"
 )
 
 const (

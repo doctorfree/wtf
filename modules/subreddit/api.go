@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 var rootPage = "https://www.reddit.com/r/"
@@ -21,7 +21,7 @@ func GetLinks(subreddit string, sortMode string, topTimePeriod string) ([]Link, 
 		return nil, err
 	}
 
-	request.Header.Set("User-Agent", "wtfutil (https://github.com/wtfutil/wtf)")
+	request.Header.Set("User-Agent", "wtfutil (https://github.com/doctorfree/wtf)")
 
 	// See https://www.reddit.com/r/redditdev/comments/t8e8hc/comment/i18yga2/?utm_source=share&utm_medium=web2x&context=3
 	client := &http.Client{

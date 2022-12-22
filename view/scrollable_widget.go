@@ -4,7 +4,7 @@ import (
 	"strconv"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/cfg"
+	"github.com/doctorfree/wtf/cfg"
 )
 
 type ScrollableWidget struct {

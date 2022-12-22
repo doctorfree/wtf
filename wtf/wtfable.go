@@ -1,7 +1,7 @@
 package wtf
 
 import (
-	"github.com/wtfutil/wtf/cfg"
+	"github.com/doctorfree/wtf/cfg"
 
 	"github.com/rivo/tview"
 )

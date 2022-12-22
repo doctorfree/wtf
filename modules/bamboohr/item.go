@@ -3,7 +3,7 @@ package bamboohr
 import (
 	"fmt"
 
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 type Item struct {

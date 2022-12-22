@@ -8,7 +8,7 @@ import (
 	"github.com/docker/docker-credential-helpers/client"
 	"github.com/docker/docker-credential-helpers/credentials"
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/logger"
+	"github.com/doctorfree/wtf/logger"
 )
 
 type SecretLoadParams struct {

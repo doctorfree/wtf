@@ -9,7 +9,7 @@ import (
 	"net/url"
 	"strings"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 // IssuesFor returns a collection of issues for a given collection of projects.

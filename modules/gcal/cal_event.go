@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"time"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 	"google.golang.org/api/calendar/v3"
 )
 

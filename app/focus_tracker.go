@@ -6,7 +6,7 @@ import (
 
 	"github.com/olebedev/config"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // FocusState is a custom type that differentiates focusable scopes

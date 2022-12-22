@@ -2,7 +2,7 @@ package digitalclock
 
 import (
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget is a text widget struct to hold info about the current widget

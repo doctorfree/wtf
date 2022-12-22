@@ -8,7 +8,7 @@ import (
 	azrBuild "github.com/microsoft/azure-devops-go-api/azuredevops/build"
 	"github.com/pkg/errors"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 type Widget struct {

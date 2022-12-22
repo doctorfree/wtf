@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"strconv"
 
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 type groupInfoTable struct {

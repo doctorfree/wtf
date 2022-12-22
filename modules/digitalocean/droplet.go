@@ -4,7 +4,7 @@ import (
 	"strings"
 
 	"github.com/digitalocean/godo"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 // Droplet represents WTF's view of a DigitalOcean droplet

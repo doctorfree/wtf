@@ -4,7 +4,7 @@ import (
 	"fmt"
 	"net/http"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 const covidTrackerAPIURL = "https://coronavirus-tracker-api.herokuapp.com/v2/"

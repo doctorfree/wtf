@@ -18,8 +18,8 @@ import (
 	"sort"
 	"time"
 
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/utils"
 	"golang.org/x/oauth2"
 	"golang.org/x/oauth2/google"
 	"google.golang.org/api/calendar/v3"

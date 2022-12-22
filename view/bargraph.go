@@ -6,8 +6,8 @@ import (
 	"strings"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // BarGraph defines the data required to make a bar graph

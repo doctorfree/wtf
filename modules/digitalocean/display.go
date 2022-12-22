@@ -3,7 +3,7 @@ package digitalocean
 import (
 	"fmt"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 const maxColWidth = 12

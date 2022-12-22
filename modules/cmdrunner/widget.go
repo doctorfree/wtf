@@ -11,7 +11,7 @@ import (
 
 	"github.com/creack/pty"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget contains the data for this widget

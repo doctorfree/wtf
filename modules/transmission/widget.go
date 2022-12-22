@@ -6,7 +6,7 @@ import (
 
 	"github.com/hekmon/transmissionrpc"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget is the container for transmission data

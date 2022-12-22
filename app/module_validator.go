@@ -5,8 +5,8 @@ import (
 	"os"
 
 	"github.com/logrusorgru/aurora"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // ModuleValidator is responsible for validating the state of a module's configuration

@@ -3,8 +3,8 @@ package ipinfo
 import (
 	"fmt"
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/cfg"
-	log "github.com/wtfutil/wtf/logger"
+	"github.com/doctorfree/wtf/cfg"
+	log "github.com/doctorfree/wtf/logger"
 )
 
 const (

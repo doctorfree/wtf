@@ -5,9 +5,9 @@ import (
 	"net/http"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/logger"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/logger"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget is the container for your module's data

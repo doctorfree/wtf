@@ -4,8 +4,8 @@ import (
 	"strings"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // TextWidget defines the data necessary to make a text widget

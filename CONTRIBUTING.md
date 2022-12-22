@@ -7,7 +7,7 @@
 2. Update the static documentation with details of changes to the interface, this includes new environment
    variables, useful file locations and configuration parameters.
 
-Documentation lives at [wtfdocs](https://github.com/wtfutil/wtfdocs) and is a [Hugo](https://gohugo.io) app. See Hugo's documentation for usage.
+Documentation lives at [wtfdocs](https://github.com/doctorfree/wtfdocs) and is a [Hugo](https://gohugo.io) app. See Hugo's documentation for usage.
 
 ## Code of Conduct
 

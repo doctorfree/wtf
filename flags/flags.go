@@ -10,8 +10,8 @@ import (
 	"github.com/chzyer/readline"
 	goFlags "github.com/jessevdk/go-flags"
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/help"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/help"
 )
 
 // Flags is the container for command line flag data

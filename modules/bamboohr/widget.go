@@ -5,9 +5,9 @@ import (
 	"time"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/view"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/view"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 const apiURI = "https://api.bamboohr.com/api/gateway.php"

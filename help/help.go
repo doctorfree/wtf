@@ -4,8 +4,8 @@ import (
 	"fmt"
 
 	"github.com/olebedev/config"
-	"github.com/wtfutil/wtf/app"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/app"
+	"github.com/doctorfree/wtf/utils"
 )
 
 // Display displays the output of the --help argument

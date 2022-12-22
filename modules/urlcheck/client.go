@@ -7,7 +7,7 @@ import (
 	"net/http"
 	"time"
 
-	"github.com/wtfutil/wtf/logger"
+	"github.com/doctorfree/wtf/logger"
 )
 
 // Perform the requet of the header for a given URL

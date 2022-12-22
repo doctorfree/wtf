@@ -6,7 +6,7 @@ import (
 	"github.com/olebedev/config"
 	"github.com/rivo/tview"
 	"github.com/stretchr/testify/assert"
-	"github.com/wtfutil/wtf/cfg"
+	"github.com/doctorfree/wtf/cfg"
 )
 
 // MakeData - Create sample data

@@ -4,7 +4,7 @@ import (
 	"fmt"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 func (widget *Widget) content() (string, string, bool) {

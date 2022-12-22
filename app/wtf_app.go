@@ -11,10 +11,10 @@ import (
 	"github.com/olebedev/config"
 	"github.com/radovskyb/watcher"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/cfg"
-	"github.com/wtfutil/wtf/support"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/cfg"
+	"github.com/doctorfree/wtf/support"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // WtfApp is the container for a collection of widgets that are all constructed from a single

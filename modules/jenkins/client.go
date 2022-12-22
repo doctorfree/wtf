@@ -7,7 +7,7 @@ import (
 	"regexp"
 	"strings"
 
-	"github.com/wtfutil/wtf/utils"
+	"github.com/doctorfree/wtf/utils"
 )
 
 func (widget *Widget) Create(jenkinsURL string, username string, apiKey string) (*View, error) {

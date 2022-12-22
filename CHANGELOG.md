@@ -12,9 +12,9 @@
 
 ### ⚡️ Added
 
-* [FeedReader module](https://wtfutil.com/modules/feedreader/) now displays the name of the parent feed in front of the feed item, [#1138](https://github.com/wtfutil/wtf/issues/1138) by [@igbanam](https://github.com/igbanam)
+* [FeedReader module](https://wtfutil.com/modules/feedreader/) now displays the name of the parent feed in front of the feed item, [#1138](https://github.com/doctorfree/wtf/issues/1138) by [@igbanam](https://github.com/igbanam)
 * Steam Status module added by [@despreston](https://github.com/despreston)
-* Working directory option for CmdRunner, [#1293](https://github.com/wtfutil/wtf/issues/1293) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Working directory option for CmdRunner, [#1293](https://github.com/doctorfree/wtf/issues/1293) by [@Seanstoppable](https://github.com/Seanstoppable)
 * Updated to Go 1.18, by [@Seanstoppable](https://github.com/Seanstoppable)
 * "compact" option added to [Weather module](https://wtfutil.com/modules/weather_services/weather/) by [@Bizzaro](https://github.com/Bizzaro)
 * Mempool cryptocurrency module by [@Bizzaro](https://github.com/Bizzaro)
@@ -25,23 +25,23 @@
 ### 🐞 Fixed
 
 * [Spotify](https://wtfutil.com/modules/spotify/) module now properly displays the artist list, by [@inetAnt](https://github.com/inetAnt)
-* [Football](https://wtfutil.com/modules/sports/football/) module now uses HTTPS to connect to API, [#1183](https://github.com/wtfutil/wtf/issues/1183) by [@despreston](https://github.com/despreston)
+* [Football](https://wtfutil.com/modules/sports/football/) module now uses HTTPS to connect to API, [#1183](https://github.com/doctorfree/wtf/issues/1183) by [@despreston](https://github.com/despreston)
 * [Jira module](https://wtfutil.com/modules/jira/) now properly escapes brackets in issue summary, by [@Eraac](https://github.com/Eraac)
 * [Pocket module](https://wtfutil.com/modules/pocket/) now properly handles empty lists, by [@asadali](https://github.com/asadali)
 * Twitch module OAuth token support added, UI improved, and underlying library upgraded, by [@despreston](https://github.com/despreston)
-* Typing "q" no longer quits the entire app every time, [#1257](https://github.com/wtfutil/wtf/issues/1257) by [@senorprogrammer](https://github.com/senorprogrammer)
-* Row highlighting properly terminates the highlight color, [#1280](https://github.com/wtfutil/wtf/issues/1280) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Typing "q" no longer quits the entire app every time, [#1257](https://github.com/doctorfree/wtf/issues/1257) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Row highlighting properly terminates the highlight color, [#1280](https://github.com/doctorfree/wtf/issues/1280) by [@Seanstoppable](https://github.com/Seanstoppable)
 * Textfile widget properly displays text inside square brackets
-* CmdRunner doesn't continue to keep around processes in pty mode [#1225](https://github.com/wtfutil/wtf/issues/1225) by [@Seanstoppable](https://github.com/Seanstoppable)
-* Fix tag filtering in Todo module [#1172](https://github.com/wtfutil/wtf/issues/1225) by [@Seanstoppable](https://github.com/Seanstoppable)
+* CmdRunner doesn't continue to keep around processes in pty mode [#1225](https://github.com/doctorfree/wtf/issues/1225) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Fix tag filtering in Todo module [#1172](https://github.com/doctorfree/wtf/issues/1225) by [@Seanstoppable](https://github.com/Seanstoppable)
 
 ## 0.41.0
 
 ### 🐞 Fixed
 
-* [Kubernetes module](https://wtfutil.com/modules/kubernetes/) now uses a client per widget, rather than a global client, [#1081](https://github.com/wtfutil/wtf/issues/1081) by [@hypnoglow](https://github.com/hypnoglow)
-* [FeedReader module]() now supports basic auth, [#957](https://github.com/wtfutil/wtf/issues/957) by [@ResamVi](https://github.com/ResamVi)
-* Single words inside square brackets are displayed in the [CmdRunner module](https://wtfutil.com/modules/cmdrunner/), [#1142](https://github.com/wtfutil/wtf/issues/1142) by [@yosmoc](https://github.com/yosmoc)
+* [Kubernetes module](https://wtfutil.com/modules/kubernetes/) now uses a client per widget, rather than a global client, [#1081](https://github.com/doctorfree/wtf/issues/1081) by [@hypnoglow](https://github.com/hypnoglow)
+* [FeedReader module]() now supports basic auth, [#957](https://github.com/doctorfree/wtf/issues/957) by [@ResamVi](https://github.com/ResamVi)
+* Single words inside square brackets are displayed in the [CmdRunner module](https://wtfutil.com/modules/cmdrunner/), [#1142](https://github.com/doctorfree/wtf/issues/1142) by [@yosmoc](https://github.com/yosmoc)
 * `text_widget.tpl` generator fixed and documentation improved, by [@Quentinchampenois](https://github.com/Quentinchampenois)
 
 ### 👍 Updated
@@ -53,22 +53,22 @@
 
 ### ⚡️ Added
 
-* Numerous improvements to the display of the Git module, [#1102](https://github.com/wtfutil/wtf/pull/1102) by [@tadeaspaule](https://github.com/tadeaspaule)
+* Numerous improvements to the display of the Git module, [#1102](https://github.com/doctorfree/wtf/pull/1102) by [@tadeaspaule](https://github.com/tadeaspaule)
 * Updated to Go 1.17, by [nontw](https://github.com/nontw)
-* [Airbrake module](https://github.com/wtfutil/wtf/tree/master/modules/airbrake) added, by [@kyrylo](https://github.com/kyrylo)
-* Displays the battery level of connected devices, if the level can be read by `ioreg`, on MacOS, [#1108](https://github.com/wtfutil/wtf/issues/1108) by [@senorprogrammer](https://github.com/senorprogrammer)
+* [Airbrake module](https://github.com/doctorfree/wtf/tree/master/modules/airbrake) added, by [@kyrylo](https://github.com/kyrylo)
+* Displays the battery level of connected devices, if the level can be read by `ioreg`, on MacOS, [#1108](https://github.com/doctorfree/wtf/issues/1108) by [@senorprogrammer](https://github.com/senorprogrammer)
 * Adds an `args` setting to [IP API](https://wtfutil.com/modules/ipaddress/ipapi/) for defining which fields are displayed, by [@Choromanski](https://github.com/Choromanski)
-* [Security module](https://wtfutil.com/modules/security/) no longer displays wifi info if wifi is missing or disabled, [#1124](https://github.com/wtfutil/wtf/issues/1124) by [@yosmoc](https://github.com/yosmoc)
+* [Security module](https://wtfutil.com/modules/security/) no longer displays wifi info if wifi is missing or disabled, [#1124](https://github.com/doctorfree/wtf/issues/1124) by [@yosmoc](https://github.com/yosmoc)
 * `q` now quits WTF. Added as a new global hotkey, by [@thuan1412](https://github.com/thuan1412)
-* [DigitalOcean module](https://wtfutil.com/modules/digitalocean/) now properly displays the droplet region, [#1053](https://github.com/wtfutil/wtf/issues/1053) by [@yosmoc](https://github.com/yosmoc)
-* [gCal module](https://wtfutil.com/modules/google/gcal/) now supports multiple configurations with different email addresses, [#1016](https://github.com/wtfutil/wtf/issues/1016) by [@Seanstoppable](https://github.com/Seanstoppable)
-* All modules now support sub-1 second refresh intervals by specifying an optional time unit (ie: `50ms`, `20s`), [#1103](https://github.com/wtfutil/wtf/issues/1103) by [@ResamVi](https://github.com/ResamVi)
+* [DigitalOcean module](https://wtfutil.com/modules/digitalocean/) now properly displays the droplet region, [#1053](https://github.com/doctorfree/wtf/issues/1053) by [@yosmoc](https://github.com/yosmoc)
+* [gCal module](https://wtfutil.com/modules/google/gcal/) now supports multiple configurations with different email addresses, [#1016](https://github.com/doctorfree/wtf/issues/1016) by [@Seanstoppable](https://github.com/Seanstoppable)
+* All modules now support sub-1 second refresh intervals by specifying an optional time unit (ie: `50ms`, `20s`), [#1103](https://github.com/doctorfree/wtf/issues/1103) by [@ResamVi](https://github.com/ResamVi)
 
 ### 🐞 Fixed
 
 * [GitHub module](https://wtfutil.com/modules/github/) no longer crashes when selecting different items across multiple repos, by [@Seanstoppable](https://github.com/Seanstoppable)
-* `make lint` errors fixed, [#1127](https://github.com/wtfutil/wtf/issues/1127) by [@yosmoc](https://github.com/yosmoc)
-* `jwt-go` replaced by `golang-jwt`, because security vulnerabilities, [#1121](https://github.com/wtfutil/wtf/issues/1121) by [@siddhant94](https://github.com/siddhant94)
+* `make lint` errors fixed, [#1127](https://github.com/doctorfree/wtf/issues/1127) by [@yosmoc](https://github.com/yosmoc)
+* `jwt-go` replaced by `golang-jwt`, because security vulnerabilities, [#1121](https://github.com/doctorfree/wtf/issues/1121) by [@siddhant94](https://github.com/siddhant94)
 
 ## v0.39.2
 
@@ -78,37 +78,37 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ⚡️ Added
 
-* [Updown module](https://github.com/wtfutil/wtf/tree/master/modules/updown) added, by [@hjr265](https://github.com/hjr265)
-* Considerable improvements to the [Todo module](https://github.com/wtfutil/wtf/tree/master/modules/todo). See PR [#1100](https://github.com/wtfutil/wtf/pull/1100) for details. By [@tadeaspaule](https://github.com/tadeaspaule)
+* [Updown module](https://github.com/doctorfree/wtf/tree/master/modules/updown) added, by [@hjr265](https://github.com/hjr265)
+* Considerable improvements to the [Todo module](https://github.com/doctorfree/wtf/tree/master/modules/todo). See PR [#1100](https://github.com/doctorfree/wtf/pull/1100) for details. By [@tadeaspaule](https://github.com/tadeaspaule)
 
 ### 🐞 Fixed
 
-* [Healthchecks module](https://github.com/wtfutil/wtf/tree/master/modules/healthchecks) now respects the `apiURL` setting in the config file, by [@hjr265](https://github.com/hjr265)
-* Example FeedReader RSS feed in the default config changed to a working feed, [#1096](https://github.com/wtfutil/wtf/issues/1096) by [@senorprogrammer](https://github.com/senorprogrammer)
+* [Healthchecks module](https://github.com/doctorfree/wtf/tree/master/modules/healthchecks) now respects the `apiURL` setting in the config file, by [@hjr265](https://github.com/hjr265)
+* Example FeedReader RSS feed in the default config changed to a working feed, [#1096](https://github.com/doctorfree/wtf/issues/1096) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ## 0.38.0
 
 ### 🐞 Fixed
 
-* [FeedReader module](https://github.com/wtfutil/wtf/tree/master/modules/feedreader) handles line breaks in item titles gracefully, [#1088](https://github.com/wtfutil/wtf/issues/1088) by [@GibranHL0](https://github.com/GibranHL0)
+* [FeedReader module](https://github.com/doctorfree/wtf/tree/master/modules/feedreader) handles line breaks in item titles gracefully, [#1088](https://github.com/doctorfree/wtf/issues/1088) by [@GibranHL0](https://github.com/GibranHL0)
 
 ## 0.37.0
 
 ### ⚡️ Added
 
-* [Yahoo Finance](https://github.com/wtfutil/wtf/tree/master/modules/stocks/yfinance) module added, by [@inetAnt](https://github.com/inetAnt)
+* [Yahoo Finance](https://github.com/doctorfree/wtf/tree/master/modules/stocks/yfinance) module added, by [@inetAnt](https://github.com/inetAnt)
 
 ### 🐞 Fixed
 
-* Fixed error closing the Jira module response body, [#1070](https://github.com/wtfutil/wtf/issues/1070) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Fixed error closing the Jira module response body, [#1070](https://github.com/doctorfree/wtf/issues/1070) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ## v0.36.0
 
 ### ⚡️ Added
 
-* [Healthchecks module](https://github.com/wtfutil/wtf/tree/master/modules/healthchecks) added, by [@stone](https://github.com/stone)
-* [Asana module](https://github.com/wtfutil/wtf/tree/master/modules/asana) added, by [@xntrik](https://github.com/xntrik)
-* [Kubernetes module](https://github.com/wtfutil/wtf/tree/master/modules/kubernetes) now displays the Ready Replicas and Total Replicas count, by [@LKaemmerling](https://github.com/LKaemmerling)
+* [Healthchecks module](https://github.com/doctorfree/wtf/tree/master/modules/healthchecks) added, by [@stone](https://github.com/stone)
+* [Asana module](https://github.com/doctorfree/wtf/tree/master/modules/asana) added, by [@xntrik](https://github.com/xntrik)
+* [Kubernetes module](https://github.com/doctorfree/wtf/tree/master/modules/kubernetes) now displays the Ready Replicas and Total Replicas count, by [@LKaemmerling](https://github.com/LKaemmerling)
 * Now builds using Go 1.16, which provides support for Apple's M1 ARM hardware, by [@LKaemmerling](https://github.com/LKaemmerling)
 
 ### 🐞 Fixed
@@ -121,7 +121,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ⚡️ Added
 
-* CircleCI module now supports `numberOfBuilds` setting defining how many builds to display, [#1020](https://github.com/wtfutil/wtf/issues/1020) by [@dabcoder](https://github.com/dabcoder)
+* CircleCI module now supports `numberOfBuilds` setting defining how many builds to display, [#1020](https://github.com/doctorfree/wtf/issues/1020) by [@dabcoder](https://github.com/dabcoder)
 * The <kbd>\\</kbd> key now opens module documentation in the browser for the currently-focused module, by [@senorprogrammer](https://github.com/senorprogrammer)
 * Krisinformation module added, by [@stone](https://github.com/stone)
 * Covid module has been added, by [@dabcoder](https://github.com/dabcoder)
@@ -129,15 +129,15 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* CryptoLive prices update again, [#1041](https://github.com/wtfutil/wtf/issues/1041) by [@zye1996](https://github.com/zye1996)
+* CryptoLive prices update again, [#1041](https://github.com/doctorfree/wtf/issues/1041) by [@zye1996](https://github.com/zye1996)
 
 ## v0.34.0
 2020-11-08
 
 ### ⚡️ Added
 
-* DigitalOcean module now supports custom column definitions in the default layout. See [the docs](https://wtfutil.com/modules/digitalocean/) for details, [#986](https://github.com/wtfutil/wtf/issues/986) by [@senorprogrammer](https://github.com/senorprogrammer)
-* Finnhub stock quotes module added, [#930](https://github.com/wtfutil/wtf/issues/930) by [@applegreengrape](https://github.com/applegreengrape)
+* DigitalOcean module now supports custom column definitions in the default layout. See [the docs](https://wtfutil.com/modules/digitalocean/) for details, [#986](https://github.com/doctorfree/wtf/issues/986) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Finnhub stock quotes module added, [#930](https://github.com/doctorfree/wtf/issues/930) by [@applegreengrape](https://github.com/applegreengrape)
 * Grafana Alerts module added, by [@schoentoon](https://github.com/schoentoon)
 
 ### 👍 Updated
@@ -153,19 +153,19 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ⚡️ Added
 
-* FeedReader module supports [display mode switching](https://github.com/wtfutil/wtf/pull/976) via the `t` key, by [@cyingfan](https://github.com/cyingfan)
-* Clocks module now supports `natural` ordering option, [#896](https://github.com/wtfutil/wtf/issues/896) by [@seanstoppable](https://github.com/Seanstoppable)
+* FeedReader module supports [display mode switching](https://github.com/doctorfree/wtf/pull/976) via the `t` key, by [@cyingfan](https://github.com/cyingfan)
+* Clocks module now supports `natural` ordering option, [#896](https://github.com/doctorfree/wtf/issues/896) by [@seanstoppable](https://github.com/Seanstoppable)
 * Exit banner message added, by [@senorprogrammer](https://github.com/senorprogrammer)
-* [UptimeRobot module added](https://github.com/wtfutil/wtf/pull/983), by [@franga2000](https://github.com/franga2000)
+* [UptimeRobot module added](https://github.com/doctorfree/wtf/pull/983), by [@franga2000](https://github.com/franga2000)
 * Gitlab module now defaults the domain to `https://gitlab.com`, by [@jmks](https://github.com/jmks)
 
 ### 🐞 Fixed
 
 * Exchange Rates module now displays rates in alphabetical order, sorted by the base rate, by [@senorprogrammer](https://github.com/senorprogrammer)
-* Feed Reader module no longer crashes on feeds that don't have a published date, [#958](https://github.com/wtfutil/wtf/issues/958) by [@cyingfan](https://github.com/cyingfan)
-* Stray blank lines no longer appear at the end of highlightable lists, [#977](https://github.com/wtfutil/wtf/pull/977) by [@cyingfan](https://github.com/cyingfan)
+* Feed Reader module no longer crashes on feeds that don't have a published date, [#958](https://github.com/doctorfree/wtf/issues/958) by [@cyingfan](https://github.com/cyingfan)
+* Stray blank lines no longer appear at the end of highlightable lists, [#977](https://github.com/doctorfree/wtf/pull/977) by [@cyingfan](https://github.com/cyingfan)
 * `config.yml` now properly set to `0600` instead of `0666`, by [@cyingfan](https://github.com/cyingfan)
-* Now blank-imports the `time/tzinfo` package to provide timezone support for Windows users, [#994](https://github.com/wtfutil/wtf/issues/994) by [@trimble](https://github.com/trimble)
+* Now blank-imports the `time/tzinfo` package to provide timezone support for Windows users, [#994](https://github.com/doctorfree/wtf/issues/994) by [@trimble](https://github.com/trimble)
 
 ### 👍 Updated
 
@@ -185,12 +185,12 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 ### ⚡️ Added
 
 * PagerDuty module now supports `showOncallEnd` setting, which determines whether or not to display the oncall rotation end date, by [@senorprogrammer](https://github.com/senorprogrammer)
-* Exchange Rates module now supports `precision` setting, which determines how many decimal places to display, [#897](https://github.com/wtfutil/wtf/issues/897) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Exchange Rates module now supports `precision` setting, which determines how many decimal places to display, [#897](https://github.com/doctorfree/wtf/issues/897) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ### 🐞 Fixed
 
-* Todo module's edit modal now shows up quickly, [#876](https://github.com/wtfutil/wtf/issues/876) by [@aeter](https://github.com/aeter)
-* Jira module title now displays properly, [#942](https://github.com/wtfutil/wtf/issues/942) by [@timhwang21](https://github.com/timhwang21)
+* Todo module's edit modal now shows up quickly, [#876](https://github.com/doctorfree/wtf/issues/876) by [@aeter](https://github.com/aeter)
+* Jira module title now displays properly, [#942](https://github.com/doctorfree/wtf/issues/942) by [@timhwang21](https://github.com/timhwang21)
 
 ### 👍 Updated
 
@@ -203,9 +203,9 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ⚡️ Added
 
-* [docker-credential-helpers](https://github.com/docker/docker-credential-helpers) support added to provide optional securing of module secrets, [#517](https://github.com/wtfutil/wtf/issues/517) by [@sam-github](https://github.com/sam-github)
+* [docker-credential-helpers](https://github.com/docker/docker-credential-helpers) support added to provide optional securing of module secrets, [#517](https://github.com/doctorfree/wtf/issues/517) by [@sam-github](https://github.com/sam-github)
 * `make lint` now uses [golangci-lint](https://github.com/golangci/golangci-lint-action), by [@sam-github](https://github.com/sam-github)
-* GitHub module now supports per-section configuration, [#864](https://github.com/wtfutil/wtf/issues/864) by [@mryanmurphy](https://github.com/mryanmurphy)
+* GitHub module now supports per-section configuration, [#864](https://github.com/doctorfree/wtf/issues/864) by [@mryanmurphy](https://github.com/mryanmurphy)
 * PagerDuty module now accepts Team ID and User ID as filters, by [@mryanmurphy](https://github.com/mryanmurphy)
 * Weather module now supports a `useEmoji` setting, toggling the use of emoji characters in the title, by [@jonhadfield](https://github.com/jonhadfield)
 * Pocket documentation added, by [@3mard](https://github.com/3mard)
@@ -235,11 +235,11 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 * Expansive keyboard controls for the [GitLab](https://wtfutil.com/modules/gitlab/) module, by [@mogensen](https://github.com/mogensen)
 * [IPInfo](https://wtfutil.com/modules/ipaddress/ipinfo/) module now supports IPv6 lookup, by [@acaloiaro](https://github.com/acaloiaro)
-* The GitHub repo now runs a set of actions that lint PRs for code quality and conformity and comment in-line on the PRs. See here for action details https://github.com/wtfutil/wtf/actions
+* The GitHub repo now runs a set of actions that lint PRs for code quality and conformity and comment in-line on the PRs. See here for action details https://github.com/doctorfree/wtf/actions
 
 ### 🐞 Fixed
 
-* Random capital letters around display, [#811](https://github.com/wtfutil/wtf/issues/811) by [@jonhadfield](https://github.com/jonhadfield)
+* Random capital letters around display, [#811](https://github.com/doctorfree/wtf/issues/811) by [@jonhadfield](https://github.com/jonhadfield)
 * [Feed Reader](https://wtfutil.com/modules/feedreader/) module now properly sorts multi-feed items by date, by [@rsaarelm](https://github.com/rsaarelm)
 
 ### 👍 Updated
@@ -257,7 +257,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Docker module subheading display, [#847](https://github.com/wtfutil/wtf/issues/847) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Docker module subheading display, [#847](https://github.com/doctorfree/wtf/issues/847) by [@senorprogrammer](https://github.com/senorprogrammer)
 * Improved display of currencies for the Exchange Rate module, by [@indradhanush](https://github.com/indradhanush)
 
 ### 👍 Updated
@@ -294,7 +294,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* The `vendor` directory has been removed, [#792](https://github.com/wtfutil/wtf/issues/792) by [@bjoernw](https://github.com/bjoernw)
+* The `vendor` directory has been removed, [#792](https://github.com/doctorfree/wtf/issues/792) by [@bjoernw](https://github.com/bjoernw)
 
 ### 👍 Updated
 
@@ -311,18 +311,18 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 * `myName` config setting added to PagerDuty module, by [@senorprogrammer](https://github.com/senorprogrammer)
 * `withDate` config setting added to Digital Clock module, by [@senorprogrammer](https://github.com/senorprogrammer)
 * Twitch module added, by [@bjoernw](https://github.com/bjoernw)
-* HackerNews module now opens HN comments when there is no alternative external link, [#758](https://github.com/wtfutil/wtf/issues/758) by [@senorprogrammer](https://github.com/senorprogrammer)
-* gCal module now now allows users to hide all-day events, [#733](https://github.com/wtfutil/wtf/issues/733) by [@senorprogrammer](https://github.com/senorprogrammer)
+* HackerNews module now opens HN comments when there is no alternative external link, [#758](https://github.com/doctorfree/wtf/issues/758) by [@senorprogrammer](https://github.com/senorprogrammer)
+* gCal module now now allows users to hide all-day events, [#733](https://github.com/doctorfree/wtf/issues/733) by [@senorprogrammer](https://github.com/senorprogrammer)
 * SpaceX module added, by [@bjoernw](https://github.com/bjoernw)
-* Support for obeying `XDG_CONFIG_HOME` when set, [#699](https://github.com/wtfutil/wtf/issues/699) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Support for obeying `XDG_CONFIG_HOME` when set, [#699](https://github.com/doctorfree/wtf/issues/699) by [@Seanstoppable](https://github.com/Seanstoppable)
 
 ### 🐞 Fixed
 
-* Module templating working again, [#748](https://github.com/wtfutil/wtf/issues/748) by [@senorprogrammer](https://github.com/senorprogrammer)
-* CmdRunner title spacing issue fixed, [#784](https://github.com/wtfutil/wtf/issues/784) by [@senorprogrammer](https://github.com/senorprogrammer)
-* Colors in cmdrunner fixed when using nodejs chalk et al., [#618](https://github.com/wtfutil/wtf/issues/618) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Module templating working again, [#748](https://github.com/doctorfree/wtf/issues/748) by [@senorprogrammer](https://github.com/senorprogrammer)
+* CmdRunner title spacing issue fixed, [#784](https://github.com/doctorfree/wtf/issues/784) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Colors in cmdrunner fixed when using nodejs chalk et al., [#618](https://github.com/doctorfree/wtf/issues/618) by [@Seanstoppable](https://github.com/Seanstoppable)
 * Docker buid instructions updated and improved, by [@firecat53](https://github.com/firecat53)
-* Kubernetes module can now be used with multiple contexts, [#809](https://github.com/wtfutil/wtf/issues/809) by [@davidsbond](https://github.com/davidsbond)
+* Kubernetes module can now be used with multiple contexts, [#809](https://github.com/doctorfree/wtf/issues/809) by [@davidsbond](https://github.com/davidsbond)
 
 ### 👍 Updated
 
@@ -350,9 +350,9 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Subreddit out of bounds error fixed, [#753](https://github.com/wtfutil/wtf/issues/753) by [@TDHTTTT](https://github.com/TDHTTTT)
-* Homebrew builds now contain version information, [#557](https://github.com/wtfutil/wtf/issues/557) by [@jottr](https://github.com/jottr)
-* CmdRunner flicker problem, [#732](https://github.com/wtfutil/wtf/issues/732) by [@Gibstick](https://github.com/Gibstick)
+* Subreddit out of bounds error fixed, [#753](https://github.com/doctorfree/wtf/issues/753) by [@TDHTTTT](https://github.com/TDHTTTT)
+* Homebrew builds now contain version information, [#557](https://github.com/doctorfree/wtf/issues/557) by [@jottr](https://github.com/jottr)
+* CmdRunner flicker problem, [#732](https://github.com/doctorfree/wtf/issues/732) by [@Gibstick](https://github.com/Gibstick)
 
 ### 👍 Updated
 
@@ -372,7 +372,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ⚡️ Added
 
-* Proper, usable [Docker file](https://github.com/wtfutil/wtf/blob/master/Dockerfile) added, by [@Boot-Error](https://github.com/Boot-Error)
+* Proper, usable [Docker file](https://github.com/doctorfree/wtf/blob/master/Dockerfile) added, by [@Boot-Error](https://github.com/Boot-Error)
 * [GitLab](https://wtfutil.com/modules/gitlab/) module displays issues assigned to, and opened by, the user, by [@caalberts](https://github.com/caalberts)
 * [TravisCI](https://wtfutil.com/modules/travisci/) now checks for uncommitted vendor changes, by [@indradhanush](https://github.com/indradhanush)
 * Football module added, by [@C123R](https://github.com/C123R)
@@ -382,8 +382,8 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 ### 🐞 Fixed
 
 * Github PRs do not count against issues, by [@alexfornuto](https://github.com/alexfornuto)
-* Todo scrolling now works properly, [#707](https://github.com/wtfutil/wtf/issues/707) by [3mard](https://github.com/3mard)
-* Configs with a missing `color` key now load properly, [#718](https://github.com/wtfutil/wtf/issues/718) and [#730](https://github.com/wtfutil/wtf/issues/730) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Todo scrolling now works properly, [#707](https://github.com/doctorfree/wtf/issues/707) by [3mard](https://github.com/3mard)
+* Configs with a missing `color` key now load properly, [#718](https://github.com/doctorfree/wtf/issues/718) and [#730](https://github.com/doctorfree/wtf/issues/730) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ## 0.23.0
 
@@ -391,22 +391,22 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 * [Azure DevOps](https://wtfutil.com/modules/azure-devops/) module added, by [@v-braun](https://github.com/v-braun)
 * [Dev.to](https://wtfutil.com/modules/devto/) module added, by [@VictorAvelar](https://github.com/VictorAvelar)
-* [TravisCI]() module now supports enterprise endpoints, [#652](https://github.com/wtfutil/wtf/issues/652) by [@scw007](https://github.com/scw007)
+* [TravisCI]() module now supports enterprise endpoints, [#652](https://github.com/doctorfree/wtf/issues/652) by [@scw007](https://github.com/scw007)
 * [Subreddit](https://wtfutil.com/modules/subreddit/) module added, by [@lawrencecraft](https://github.com/lawrencecraft)
-* [gCal](https://wtfutil.com/modules/google/gcal/) module now supports a `hourFormat` setting for defining whether to display 12 or 24-hour times, [#665](https://github.com/wtfutil/wtf/issues/665) by [@senorprogrammer](https://github.com/senorprogrammer)
+* [gCal](https://wtfutil.com/modules/google/gcal/) module now supports a `hourFormat` setting for defining whether to display 12 or 24-hour times, [#665](https://github.com/doctorfree/wtf/issues/665) by [@senorprogrammer](https://github.com/senorprogrammer)
 * [Scarf](https://scarf.sh) installation instructions added to README, by [@aviaviavi](https://github.com/aviaviavi)
-* Spotify widget now supports colour themes, [#659](https://github.com/wtfutil/wtf/issues/659) by [@Tardog](https://github.com/Tardog)
+* Spotify widget now supports colour themes, [#659](https://github.com/doctorfree/wtf/issues/659) by [@Tardog](https://github.com/Tardog)
 * [Buildkite](https://wtfutil.com/modules/buildkite/) module added, by [@jmks](https://github.com/jmks)
-* [Improvements](https://github.com/wtfutil/wtf/pull/680) to the [CmdRunner](https://wtfutil.com/modules/cmdrunner/) module, by [@noxer](https://github.com/noxer)
+* [Improvements](https://github.com/doctorfree/wtf/pull/680) to the [CmdRunner](https://wtfutil.com/modules/cmdrunner/) module, by [@noxer](https://github.com/noxer)
 
 ### 🐞 Fixed
 
-* gCal calendar event time colour can now be changed by setting the `eventTime` configuration setting, [#638](https://github.com/wtfutil/wtf/issues/638) by [@indradhanush](https://github.com/indradhanush)
-* [Clocks](https://wtfutil.com/modules/clocks/) now obeys global row colour settings, [#658](https://github.com/wtfutil/wtf/issues/658) by [@senorprogrammer](https://github.com/senorprogrammer)
-* [Transmission](https://wtfutil.com/modules/transmission/) module no longer blocks rendering when a Transmission daemon cannot be found, [#661](https://github.com/wtfutil/wtf/issues/661) by [@senorprogrammer](https://github.com/senorprogrammer)
-* [Trello](https://wtfutil.com/modules/trello/) module now respects project list order, [#664](https://github.com/wtfutil/wtf/issues/664) by [@Seanstoppable](https://github.com/Seanstoppable)
-* [Todo](https://wtfutil.com/modules/todo/) module now respects checkbox settings, [#616](https://github.com/wtfutil/wtf/issues/616) by [@Seanstoppable](https://github.com/Seanstoppable)
-* [Todoist](https://wtfutil.com/modules/todoist/) module now properly handles todo items with due date and times, [#645](https://github.com/wtfutil/wtf/issues/645) by [@massa1240](https://github.com/massa1240)
+* gCal calendar event time colour can now be changed by setting the `eventTime` configuration setting, [#638](https://github.com/doctorfree/wtf/issues/638) by [@indradhanush](https://github.com/indradhanush)
+* [Clocks](https://wtfutil.com/modules/clocks/) now obeys global row colour settings, [#658](https://github.com/doctorfree/wtf/issues/658) by [@senorprogrammer](https://github.com/senorprogrammer)
+* [Transmission](https://wtfutil.com/modules/transmission/) module no longer blocks rendering when a Transmission daemon cannot be found, [#661](https://github.com/doctorfree/wtf/issues/661) by [@senorprogrammer](https://github.com/senorprogrammer)
+* [Trello](https://wtfutil.com/modules/trello/) module now respects project list order, [#664](https://github.com/doctorfree/wtf/issues/664) by [@Seanstoppable](https://github.com/Seanstoppable)
+* [Todo](https://wtfutil.com/modules/todo/) module now respects checkbox settings, [#616](https://github.com/doctorfree/wtf/issues/616) by [@Seanstoppable](https://github.com/Seanstoppable)
+* [Todoist](https://wtfutil.com/modules/todoist/) module now properly handles todo items with due date and times, [#645](https://github.com/doctorfree/wtf/issues/645) by [@massa1240](https://github.com/massa1240)
 * Invalid pointer error in [Azure DevOps](https://wtfutil.com/modules/azure-devops/) fixed by [@Boot-Error](https://github.com/Boot-Error)
 * Renamed slice error in [Dev](https://wtfutil.com/modules/devto/) fixed by [@Boot-Error](https://github.com/Boot-Error)
 
@@ -431,25 +431,25 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 * 'calendarReadLevel' setting added to gCal module, by [@mikkeljuhl](https://github.com/mikkeljuhl)
 * Todoist module now catches and displays API errors, by [@Seanstoppable](https://github.com/Seanstoppable)
 * TravisCI sort orders now configurable,  by [@nyourchuck](https://github.com/nyourchuck)
-* Google Analytics module now supports real-time metrics, [#581](https://github.com/wtfutil/wtf/issues/581) by [@Ameobea](https://github.com/Ameobea)
+* Google Analytics module now supports real-time metrics, [#581](https://github.com/doctorfree/wtf/issues/581) by [@Ameobea](https://github.com/Ameobea)
 * Colors in configuration can now be defined using long-form hex, i.e.: #ff0000, by [@Seanstoppable](https://github.com/Seanstoppable)
-* GitHub module pull requests are now selectable and openable via keyboard, [#547](https://github.com/wtfutil/wtf/issues/547) by [@Midnight-Conqueror](https://github.com/Midnight-Conqueror)
-* [Docker](https://wtfutil.com/modules/docker/) module added, [#594](https://github.com/wtfutil/wtf/issues/594) by [@v-braun](https://github.com/v-braun)
-* NewRelic module now supports displaying data from multiple apps, [#471](https://github.com/wtfutil/wtf/issues/471) by [@ChrisDBrown](https://github.com/ChrisDBrown) and [@Seanstoppable](https://github.com/Seanstoppable)
+* GitHub module pull requests are now selectable and openable via keyboard, [#547](https://github.com/doctorfree/wtf/issues/547) by [@Midnight-Conqueror](https://github.com/Midnight-Conqueror)
+* [Docker](https://wtfutil.com/modules/docker/) module added, [#594](https://github.com/doctorfree/wtf/issues/594) by [@v-braun](https://github.com/v-braun)
+* NewRelic module now supports displaying data from multiple apps, [#471](https://github.com/doctorfree/wtf/issues/471) by [@ChrisDBrown](https://github.com/ChrisDBrown) and [@Seanstoppable](https://github.com/Seanstoppable)
 * [Digital Clock](https://wtfutil.com/modules/digitalclock/) module added, by [@Narengowda](https://github.com/Narengowda)
 
 ### 🐞 Fixed
 
-* ScrollableWidget bounds checking error fixed, [#578](https://github.com/wtfutil/wtf/issues/578) by [@Seanstoppable](https://github.com/Seanstoppable)
-* Now properly URL-decodes Jenkins branch names, [#575](https://github.com/wtfutil/wtf/issues/575) by [@lesteenman](https://github.com/lesteenman)
-* Jira column sizes render properly, [#574](https://github.com/wtfutil/wtf/issues/574) by [@lesteenman](https://github.com/lesteenman)
+* ScrollableWidget bounds checking error fixed, [#578](https://github.com/doctorfree/wtf/issues/578) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Now properly URL-decodes Jenkins branch names, [#575](https://github.com/doctorfree/wtf/issues/575) by [@lesteenman](https://github.com/lesteenman)
+* Jira column sizes render properly, [#574](https://github.com/doctorfree/wtf/issues/574) by [@lesteenman](https://github.com/lesteenman)
 * Todoist module updated to latest API version, by [@Seanstoppable](https://github.com/Seanstoppable)
-* gCal colour highlighting working again, [#611](https://github.com/wtfutil/wtf/issues/611) by [@senorprogrammer](https://github.com/senorprogrammer)
-* Per-module background and text colour settings working again, [#568](https://github.com/wtfutil/wtf/issues/568) by [@Seanstoppable](https://github.com/Seanstoppable)
-* Git module no longer forces sorting of repositories, [#608](https://github.com/wtfutil/wtf/pull/608) by [@Seanstoppable](https://github.com/Seanstoppable)
+* gCal colour highlighting working again, [#611](https://github.com/doctorfree/wtf/issues/611) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Per-module background and text colour settings working again, [#568](https://github.com/doctorfree/wtf/issues/568) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Git module no longer forces sorting of repositories, [#608](https://github.com/doctorfree/wtf/pull/608) by [@Seanstoppable](https://github.com/Seanstoppable)
 * GitHub PR icons render properly without phantom characters, by [@Midnight-Conqueror](https://github.com/Midnight-Conqueror)
-* GitLab configuration now takes a list of project paths, [#566](https://github.com/wtfutil/wtf/issues/566) by [@senorprogrammer](https://github.com/senorprogrammer)
-* Kubernetes configuration segfault fixed, [#549](https://github.com/wtfutil/wtf/issues/549) by [@ibaum](https://github.com/ibaum)
+* GitLab configuration now takes a list of project paths, [#566](https://github.com/doctorfree/wtf/issues/566) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Kubernetes configuration segfault fixed, [#549](https://github.com/doctorfree/wtf/issues/549) by [@ibaum](https://github.com/ibaum)
 
 ## v0.21.0
 
@@ -459,23 +459,23 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Power indicator displays ∞ on Linux when fully-charged and on AC power, [#534](https://github.com/wtfutil/wtf/issues/534) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Power indicator displays ∞ on Linux when fully-charged and on AC power, [#534](https://github.com/doctorfree/wtf/issues/534) by [@Seanstoppable](https://github.com/Seanstoppable)
 * Default background color is now the terminal background color, making transparency support possible in MacOS and Linux,  by [@Seanstoppable](https://github.com/Seanstoppable)
 * `xdg-open` now used as the opener for HTTP/HTTPS by default, by [@hxw](https://github.com/hxw)
-* Transmission port over-ride now working, [#565](https://github.com/wtfutil/wtf/issues/565) by [@Seanstoppable](https://github.com/Seanstoppable)
-* Default config is now created on first run, [#553](https://github.com/wtfutil/wtf/issues/553) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Transmission port over-ride now working, [#565](https://github.com/doctorfree/wtf/issues/565) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Default config is now created on first run, [#553](https://github.com/doctorfree/wtf/issues/553) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ## v0.20.0
 
 ### ⚡️ Added
 
-* Kubernetes module added, [#142](https://github.com/wtfutil/wtf/issues/142) by [@sudermanjr](https://github.com/sudermanjr)
+* Kubernetes module added, [#142](https://github.com/doctorfree/wtf/issues/142) by [@sudermanjr](https://github.com/sudermanjr)
 
 ### 🐞 Fixed
 
-* Tab and Esc keys work properly in modal dialogs, [#520](https://github.com/wtfutil/wtf/issues/520) by [@Seanstoppable](https://github.com/Seanstoppable)
-* `wtfutil -m` flag now works with non-enabled modules, [#529](https://github.com/wtfutil/wtf/issues/529) by [@Seanstoppable](https://github.com/Seanstoppable)
-* Jenkins job filtering preserved across redraws, [#532](https://github.com/wtfutil/wtf/issues/532) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Tab and Esc keys work properly in modal dialogs, [#520](https://github.com/doctorfree/wtf/issues/520) by [@Seanstoppable](https://github.com/Seanstoppable)
+* `wtfutil -m` flag now works with non-enabled modules, [#529](https://github.com/doctorfree/wtf/issues/529) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Jenkins job filtering preserved across redraws, [#532](https://github.com/doctorfree/wtf/issues/532) by [@Seanstoppable](https://github.com/Seanstoppable)
 
 ## v0.19.1
 
@@ -488,7 +488,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ☠️ Breaking Change
 
-* HIBP module now requires an API key to operate. See [Authentication and the Have I Been Pwned API](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/) for more details, [#508](https://github.com/wtfutil/wtf/issues/508) by [@senorprogrammer](https://github.com/senorprogrammer)
+* HIBP module now requires an API key to operate. See [Authentication and the Have I Been Pwned API](https://www.troyhunt.com/authentication-and-the-have-i-been-pwned-api/) for more details, [#508](https://github.com/doctorfree/wtf/issues/508) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ### ⚡️ Added
 
@@ -497,8 +497,8 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 ### 🐞 Fixed
 
 * Fixes the error message shown when an explicitly-specified custom config file cannot be found or cannot be read, by [@senorprogrammer](https://github.com/senorprogrammer)
-* Rollbar module works again, [#507](https://github.com/wtfutil/wtf/issues/507) by [@Seanstoppable](https://github.com/Seanstoppable)
-* The default config that gets installed on first run is much improved, [#504](https://github.com/wtfutil/wtf/issues/504) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Rollbar module works again, [#507](https://github.com/doctorfree/wtf/issues/507) by [@Seanstoppable](https://github.com/Seanstoppable)
+* The default config that gets installed on first run is much improved, [#504](https://github.com/doctorfree/wtf/issues/504) by [@senorprogrammer](https://github.com/senorprogrammer)
 * Default config file is now `chmod 0600` to ensure only the owning user can read it, by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ## v0.18.0
@@ -509,7 +509,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Now created ~/.config if that directory is missing, [#510](https://github.com/wtfutil/wtf/issues/510) by [@senorprogrammer](https://github.com/senorprogrammer)
+* Now created ~/.config if that directory is missing, [#510](https://github.com/doctorfree/wtf/issues/510) by [@senorprogrammer](https://github.com/senorprogrammer)
 
 ## v0.17.1
 
@@ -546,9 +546,9 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Cryptolive module works again, [#481](https://github.com/wtfutil/wtf/issues/481) by [@Seanstoppable](https://github.com/Seanstoppable)
-* gCal module now supports setting an explicit time zone via the "timezone" config attribute, [#382](https://github.com/wtfutil/wtf/issues/382) by [@jeangovil](https://github.com/jeangovil)
-* Misconfigured module positions in `config.yaml` now attempt to provide informative error messages on launch, [#482](https://github.com/wtfutil/wtf/issues/482)
+* Cryptolive module works again, [#481](https://github.com/doctorfree/wtf/issues/481) by [@Seanstoppable](https://github.com/Seanstoppable)
+* gCal module now supports setting an explicit time zone via the "timezone" config attribute, [#382](https://github.com/doctorfree/wtf/issues/382) by [@jeangovil](https://github.com/jeangovil)
+* Misconfigured module positions in `config.yaml` now attempt to provide informative error messages on launch, [#482](https://github.com/doctorfree/wtf/issues/482)
 
 ## v0.13.0
 
@@ -572,7 +572,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 ### 🐞 Fixed
 
 * Todoist now properly updates list items when Refresh is called
-* Keyboard modal displays properly when tabbing between widgets, [#467](https://github.com/wtfutil/wtf/issues/467)
+* Keyboard modal displays properly when tabbing between widgets, [#467](https://github.com/doctorfree/wtf/issues/467)
 
 ## v0.10.3
 
@@ -585,20 +585,20 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 ### 🐞 Fixed
 
 * Weather module no longer crashes if there's no weather data or no internet connection
-* Gitlab no longer prevents installing with missing param, [#455](https://github.com/wtfutil/wtf/issues/455)
+* Gitlab no longer prevents installing with missing param, [#455](https://github.com/doctorfree/wtf/issues/455)
 
 ## v0.10.1
 
 ### 🐞 Fixed
 
-* Trello now displays multiple lists properly, [#454](https://github.com/wtfutil/wtf/issues/454)
+* Trello now displays multiple lists properly, [#454](https://github.com/doctorfree/wtf/issues/454)
 
 ## v0.10.0
 
 ### ⚡️ Added
 
 * DataDog module is now scrollable and interactive, by [@Seanstoppable](https://github.com/Seanstoppable)
-* Focusable hot key numbers are now assigned in a stable order, [#435](https://github.com/wtfutil/wtf/issues/435) by [@Seanstoppable](https://github.com/Seanstoppable)
+* Focusable hot key numbers are now assigned in a stable order, [#435](https://github.com/doctorfree/wtf/issues/435) by [@Seanstoppable](https://github.com/Seanstoppable)
 * Zendesk widget now has help text, by [@Seanstoppable](https://github.com/Seanstoppable)
 * Scrollable widget added to provide common keyboard-navigation list functionality, by [@Seanstoppable](https://github.com/Seanstoppable)
 * Logging functionality extracted out from Log module, by [@Seanstoppable](https://github.com/Seanstoppable)
@@ -630,17 +630,17 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### ⚡️ Added
 
-* Dependencies are now managed and installed using Go modules. See README.md for details, [#406](https://github.com/wtfutil/wtf/issues/406) by [@retgits](https://github.com/retgits)
+* Dependencies are now managed and installed using Go modules. See README.md for details, [#406](https://github.com/doctorfree/wtf/issues/406) by [@retgits](https://github.com/retgits)
 
 ## 0.7.2
 
 ### ⚡️ Added
 
-* NBA Scores now navigable via arrow keys, [#415](https://github.com/wtfutil/wtf/issues/415)
+* NBA Scores now navigable via arrow keys, [#415](https://github.com/doctorfree/wtf/issues/415)
 
 ### 🐞 Fixed
 
-* Multi-page sigils off-by-one error fixed, [#413](https://github.com/wtfutil/wtf/issues/413)
+* Multi-page sigils off-by-one error fixed, [#413](https://github.com/doctorfree/wtf/issues/413)
 * Many points of potential and probable race conditions have been improved to not have race conditions. WTF should be quite a bit more stable now
 * In the Twitter module, the following have been fixed:
   * Help text says "Twitter" instead of "TextFile"
@@ -651,14 +651,14 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* HackerNews row selections are visible again, [#411](https://github.com/wtfutil/wtf/issues/411)
+* HackerNews row selections are visible again, [#411](https://github.com/doctorfree/wtf/issues/411)
 
 ## 0.7.0
 
 ### ⚡️ Added
 
-* Jenkins now supports coloured balls, [#358](https://github.com/wtfutil/wtf/issues/358) by [@rudolphjacksonm](https://github.com/rudolphjacksonm)
-* Jenkins now supports regular expressions, [#359](https://github.com/wtfutil/wtf/issues/359) by [@rudolphjacksonm](https://github.com/rudolphjacksonm)
+* Jenkins now supports coloured balls, [#358](https://github.com/doctorfree/wtf/issues/358) by [@rudolphjacksonm](https://github.com/rudolphjacksonm)
+* Jenkins now supports regular expressions, [#359](https://github.com/doctorfree/wtf/issues/359) by [@rudolphjacksonm](https://github.com/rudolphjacksonm)
 * Complete refactoring of the module settings system, reducing the dependency on `config` and making it possible to configure modules by other means, by [@senporprogrammer](https://github.com/senporprogrammer)
 
 ## 0.6.0
@@ -672,14 +672,14 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Now displays an error on start-up if a widget has mis-configured `position` attributes ([#389](https://github.com/wtfutil/wtf/issues/389) by @senporprogrammer)
+* Now displays an error on start-up if a widget has mis-configured `position` attributes ([#389](https://github.com/doctorfree/wtf/issues/389) by @senporprogrammer)
 
 ## 0.5.0
 
 ### ⚡️ Added
 
 * Resource Usage module added by [@nicholas-eden](https://github.com/nicholas-eden)
-* Recursive repo search in Git module ([#126](https://github.com/wtfutil/wtf/issues/126) by [@anandsudhir](http://github.com/anandsudhir))
+* Recursive repo search in Git module ([#126](https://github.com/doctorfree/wtf/issues/126) by [@anandsudhir](http://github.com/anandsudhir))
 * HTTP/HTTPS handling in OpenFile() util function by [@jdenoy](https://github.com/jdenoy)
 * Honor system http proxies when using non-default transport by [@skymeyer](https://github.com/skymeyer)
 * VictorOps module added by [ImDevinC](https://github.com/ImDevinC)
@@ -696,8 +696,8 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Google Calendar module now displays all-day events ([#306](https://github.com/wtfutil/wtf/issues/306) by [@nicholas-eden](https://github.com/nicholas-eden))
-* Google Calendar configuration much improved ([#326](https://github.com/wtfutil/wtf/issues/326) by [@dvdmssmnn](https://github.com/dvdmssmnn))
+* Google Calendar module now displays all-day events ([#306](https://github.com/doctorfree/wtf/issues/306) by [@nicholas-eden](https://github.com/nicholas-eden))
+* Google Calendar configuration much improved ([#326](https://github.com/doctorfree/wtf/issues/326) by [@dvdmssmnn](https://github.com/dvdmssmnn))
 
 ## 0.3.0
 
@@ -709,7 +709,7 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Textfile module now watches files for changes ([#276](https://github.com/wtfutil/wtf/issues/276) by @senporprogrammer)
+* Textfile module now watches files for changes ([#276](https://github.com/doctorfree/wtf/issues/276) by @senporprogrammer)
 * Nav shortcuts now use numbers rather than letters to allow the use of letters in widget menus
 * Twitter widget no longer crashes app when closing the help modal
 
@@ -725,8 +725,8 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 ### 🐞 Fixed
 
-* Textfile syntax highlighting now included in stand-alone binary ([#261](https://github.com/wtfutil/wtf/issues/261) by @senporprogrammer)
-* Config param now supports relative paths starting with `~` ([#295](https://github.com/wtfutil/wtf/issues/295) by @anandsudhir)
+* Textfile syntax highlighting now included in stand-alone binary ([#261](https://github.com/doctorfree/wtf/issues/261) by @senporprogrammer)
+* Config param now supports relative paths starting with `~` ([#295](https://github.com/doctorfree/wtf/issues/295) by @anandsudhir)
 
 ## 0.2.1
 #### Aug 17, 2018
@@ -739,10 +739,10 @@ Fixes a critical crashing bug that prevented WTF from launching on Intel Macs. T
 
 * Twitter screen name now configurable in configuration file (@senorprogrammer)
 * Gerrit module no longer dies if it can't connect to the server (@anandsudhir)
-* Pretty Weather properly displays colours again (([#298](https://github.com/wtfutil/wtf/issues/298) by @bertl4398)
-* Clocks row colour configuration fixed (([#282](https://github.com/wtfutil/wtf/issues/282) by @anandsudhir)
-* Sigils no longer display when there's only one option (([#291](https://github.com/wtfutil/wtf/issues/291) by @anandsudhir)
-* Jira module now responds to the "/" key (([#268](https://github.com/wtfutil/wtf/issues/268)) by @senorprogrammer)
+* Pretty Weather properly displays colours again (([#298](https://github.com/doctorfree/wtf/issues/298) by @bertl4398)
+* Clocks row colour configuration fixed (([#282](https://github.com/doctorfree/wtf/issues/282) by @anandsudhir)
+* Sigils no longer display when there's only one option (([#291](https://github.com/doctorfree/wtf/issues/291) by @anandsudhir)
+* Jira module now responds to the "/" key (([#268](https://github.com/doctorfree/wtf/issues/268)) by @senorprogrammer)
 
 ## 0.2.0
 #### Aug 3, 2018

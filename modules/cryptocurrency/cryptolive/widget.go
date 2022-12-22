@@ -5,9 +5,9 @@ import (
 	"sync"
 
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/modules/cryptocurrency/cryptolive/price"
-	"github.com/wtfutil/wtf/modules/cryptocurrency/cryptolive/toplist"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/modules/cryptocurrency/cryptolive/price"
+	"github.com/doctorfree/wtf/modules/cryptocurrency/cryptolive/toplist"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget define wtf widget to register widget later

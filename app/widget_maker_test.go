@@ -5,8 +5,8 @@ import (
 
 	"github.com/olebedev/config"
 	"github.com/stretchr/testify/assert"
-	"github.com/wtfutil/wtf/modules/clocks"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/modules/clocks"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 const (

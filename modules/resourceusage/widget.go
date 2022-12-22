@@ -9,7 +9,7 @@ import (
 	"github.com/rivo/tview"
 	"github.com/shirou/gopsutil/cpu"
 	"github.com/shirou/gopsutil/mem"
-	"github.com/wtfutil/wtf/view"
+	"github.com/doctorfree/wtf/view"
 )
 
 // Widget define wtf widget to register widget later

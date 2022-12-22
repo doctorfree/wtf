@@ -3,8 +3,8 @@ package app
 import (
 	"github.com/olebedev/config"
 	"github.com/rivo/tview"
-	"github.com/wtfutil/wtf/utils"
-	"github.com/wtfutil/wtf/wtf"
+	"github.com/doctorfree/wtf/utils"
+	"github.com/doctorfree/wtf/wtf"
 )
 
 // Display is the container for the onscreen representation of a WtfApp
