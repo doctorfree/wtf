@@ -4,7 +4,7 @@ import (
 	"log"
 
 	"github.com/rivo/tview"
-	"github.com/doctorfree/wtf/modules/todo_plus/backend"
+	"github.com/wtfutil/wtf/modules/todo_plus/backend"
 	"github.com/doctorfree/wtf/view"
 )
 
