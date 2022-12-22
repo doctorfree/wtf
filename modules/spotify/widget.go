@@ -6,7 +6,7 @@ import (
 	"time"
 
 	"github.com/rivo/tview"
-	"github.com/doctorfree/spotigopher/spotigopher"
+	"github.com/wtfutil/spotigopher/spotigopher"
 	"github.com/doctorfree/wtf/utils"
 	"github.com/doctorfree/wtf/view"
 )
