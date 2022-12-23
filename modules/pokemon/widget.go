@@ -5,9 +5,11 @@ import (
 	"io"
 	"math/rand"
 	"net/http"
+	"strconv"
 	"strings"
 	"time"
 
+//	"github.com/mtslzr/pokeapi-go"
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
@@ -45,8 +47,11 @@ func (widget *Widget) pokemon() {
 		rand.Seed(time.Now().UnixNano())
 		id = rand.Intn(905) + 1
 	}
+	idstr := strconv.Itoa(id)
 
-	req, err := http.NewRequest("GET", fmt.Sprintf("https://pokeapi.co/api/v2/pokemon/%d", id), http.NoBody)
+	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
+//	req, err := pokeapi.Pokemon(idstr)
+// TODO: Parse the JSON returned by the Pokeapi call
 	if err != nil {
 		widget.result = err.Error()
 		return
