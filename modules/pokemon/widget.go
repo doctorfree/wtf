@@ -1,7 +1,6 @@
 package pokemon
 
 import (
-	"fmt"
 	"io"
 	"math/rand"
 	"net/http"
