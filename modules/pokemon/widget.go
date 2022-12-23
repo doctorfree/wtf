@@ -39,7 +39,7 @@ func (widget *Widget) Refresh() {
 
 // this method reads the config and calls pokeapi.co for the Pokemon ID
 func (widget *Widget) pokemon() {
-	client := &http.Client{}
+//	client := &http.Client{}
 
 	id := widget.settings.id
 	if widget.settings.random {
@@ -56,12 +56,12 @@ func (widget *Widget) pokemon() {
 
 //	req.Header.Set("User-Agent", "curl")
 //	response, err := client.Do(req)
-//	if err != nil {
-//		widget.result = err.Error()
-//		return
-//	}
 
-	response := pokeapi.Pokemon(strconv.Itoa(id))
+	response, err := pokeapi.Pokemon(strconv.Itoa(id))
+	if err != nil {
+		widget.result = err.Error()
+		return
+	}
 	defer func() { _ = response.Body.Close() }()
 
 	contents, err := io.ReadAll(response.Body)
