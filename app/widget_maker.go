@@ -47,8 +47,8 @@ import (
 	"github.com/doctorfree/wtf/modules/krisinformation"
 	"github.com/doctorfree/wtf/modules/kubernetes"
 	"github.com/doctorfree/wtf/modules/logger"
-	"github.com/doctorfree/wtf/modules/mercurial"
 	"github.com/doctorfree/wtf/modules/lunarphase"
+	"github.com/doctorfree/wtf/modules/mercurial"
 	"github.com/doctorfree/wtf/modules/nbascore"
 	"github.com/doctorfree/wtf/modules/newrelic"
 	"github.com/doctorfree/wtf/modules/nextbus"
@@ -56,6 +56,7 @@ import (
 	"github.com/doctorfree/wtf/modules/pagerduty"
 	"github.com/doctorfree/wtf/modules/pihole"
 	"github.com/doctorfree/wtf/modules/pocket"
+	"github.com/doctorfree/wtf/modules/pokemon"
 	"github.com/doctorfree/wtf/modules/power"
 	"github.com/doctorfree/wtf/modules/resourceusage"
 	"github.com/doctorfree/wtf/modules/rollbar"
@@ -271,6 +272,9 @@ func MakeWidget(
 	case "pihole":
 		settings := pihole.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = pihole.NewWidget(tviewApp, redrawChan, pages, settings)
+	case "pokemon":
+		settings := pokemon.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = pokemon.NewWidget(tviewApp, redrawChan, settings)
 	case "power":
 		settings := power.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = power.NewWidget(tviewApp, redrawChan, settings)
