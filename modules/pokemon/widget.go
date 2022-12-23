@@ -1,9 +1,12 @@
 package pokemon
 
 import (
+	"fmt"
 	"io"
+	"math/rand"
 	"net/http"
 	"strings"
+	"time"
 
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
@@ -38,16 +41,17 @@ func (widget *Widget) pokemon() {
 	client := &http.Client{}
 
 	id := widget.settings.id
-	random := widget.settings.random
-	language := widget.settings.language
+	if widget.settings.random {
+		rand.Seed(time.Now().UnixNano())
+		id = rand.Intn(905) + 1
+	}
 
-	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+id, http.NoBody)
+	req, err := http.NewRequest("GET", fmt.Sprintf("https://pokeapi.co/api/v2/pokemon/%d", id), http.NoBody)
 	if err != nil {
 		widget.result = err.Error()
 		return
 	}
 
-	req.Header.Set("Accept-Language", widget.settings.language)
 	req.Header.Set("User-Agent", "curl")
 	response, err := client.Do(req)
 	if err != nil {

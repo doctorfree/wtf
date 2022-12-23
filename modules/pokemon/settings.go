@@ -15,7 +15,6 @@ type Settings struct {
 
 	id       int
 	random   bool
-	language string
 }
 
 func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *config.Config) *Settings {
@@ -24,7 +23,6 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 
 		id:       ymlConfig.UInt("id", 0),
 		random:   ymlConfig.UBool("random", true),
-		language: ymlConfig.UString("language", "en"),
 	}
 
 	settings.SetDocumentationPath("pokemon")
