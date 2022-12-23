@@ -3,13 +3,13 @@ package pokemon
 import (
 	"io"
 	"math/rand"
-//	"net/http"
+	"net/http"
 	"strconv"
 	"strings"
 	"time"
 
-	"github.com/mtslzr/pokeapi-go"
-	"github.com/mtslzr/pokeapi-go/structs"
+//	"github.com/mtslzr/pokeapi-go"
+//	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
@@ -40,7 +40,7 @@ func (widget *Widget) Refresh() {
 
 // this method reads the config and calls pokeapi.co for the Pokemon ID
 func (widget *Widget) pokemon() {
-//	client := &http.Client{}
+	client := &http.Client{}
 
 	id := widget.settings.id
 	if widget.settings.random {
@@ -48,18 +48,18 @@ func (widget *Widget) pokemon() {
 		id = rand.Intn(905) + 1
 	}
 
-//	idstr := strconv.Itoa(id)
-//	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
-//	if err != nil {
-//		widget.result = err.Error()
-//		return
-//	}
+	idstr := strconv.Itoa(id)
+	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
+	if err != nil {
+		widget.result = err.Error()
+		return
+	}
 
-//	req.Header.Set("User-Agent", "curl")
-//	response, err := client.Do(req)
-	var response structs.Pokemon
+	req.Header.Set("User-Agent", "curl")
+	response, err := client.Do(req)
+//	var response structs.Pokemon
 
-	response, err := pokeapi.Pokemon(strconv.Itoa(id))
+//	response, err := pokeapi.Pokemon(strconv.Itoa(id))
 	if err != nil {
 		widget.result = err.Error()
 		return

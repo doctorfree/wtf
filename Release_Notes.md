@@ -9,3 +9,7 @@
 ## Pokemon Go API
 
 - Testing use of pokemon-go API
+
+## Direct queries to pokeapi.co
+
+- Testing without pokemon-go with direct queries to pokeapi.co
