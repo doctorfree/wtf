@@ -9,7 +9,6 @@ import (
 	"time"
 
 	"github.com/mtslzr/pokeapi-go"
-	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
