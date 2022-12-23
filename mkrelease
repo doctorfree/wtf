@@ -1,6 +1,6 @@
 #!/bin/bash
 
-VERSION="1.0.1"
+VERSION="1.0.2"
 RELEASE=1
 
 usage() {
@@ -34,7 +34,7 @@ while getopts "cdpu" flag; do
 done
 shift $(( OPTIND - 1 ))
 
-ANNO="Test wtf release 3, Version ${VERSION} Release ${RELEASE}"
+ANNO="Pokemon test release, Version ${VERSION} Release ${RELEASE}"
 
 gh release create v${VERSION}r${RELEASE} ${DRAFT} \
                   --title "${ANNO}" \
