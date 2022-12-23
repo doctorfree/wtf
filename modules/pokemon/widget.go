@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-	pokeapi "github.com/mtslzr/pokeapi-go"
+	"github.com/mtslzr/pokeapi-go"
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
