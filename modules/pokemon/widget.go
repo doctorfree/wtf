@@ -56,7 +56,7 @@ func (widget *Widget) pokemon() {
 
 //	req.Header.Set("User-Agent", "curl")
 //	response, err := client.Do(req)
-	var response pokeapi.structs.Pokemon
+	var response structs.Pokemon
 
 	response, err := pokeapi.Pokemon(strconv.Itoa(id))
 	if err != nil {
