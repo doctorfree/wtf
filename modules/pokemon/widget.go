@@ -9,6 +9,7 @@ import (
 	"time"
 
 	"github.com/mtslzr/pokeapi-go"
+	"github.com/mtslzr/pokeapi-go/structs"
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
@@ -40,6 +41,7 @@ func (widget *Widget) Refresh() {
 // this method reads the config and calls pokeapi.co for the Pokemon ID
 func (widget *Widget) pokemon() {
 //	client := &http.Client{}
+	type structs = pokemon
 
 	id := widget.settings.id
 	if widget.settings.random {
@@ -56,6 +58,7 @@ func (widget *Widget) pokemon() {
 
 //	req.Header.Set("User-Agent", "curl")
 //	response, err := client.Do(req)
+	var response structs.Pokemon
 
 	response, err := pokeapi.Pokemon(strconv.Itoa(id))
 	if err != nil {
