@@ -8,7 +8,7 @@ import (
 	"strings"
 	"time"
 
-//	"github.com/mtslzr/pokeapi-go"
+	"github.com/mtslzr/pokeapi-go"
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
@@ -37,7 +37,7 @@ func (widget *Widget) Refresh() {
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
 
-// this method reads the config and calls pokeapi.co for lunar phase
+// this method reads the config and calls pokeapi.co for the Pokemon ID
 func (widget *Widget) pokemon() {
 	client := &http.Client{}
 
@@ -46,23 +46,22 @@ func (widget *Widget) pokemon() {
 		rand.Seed(time.Now().UnixNano())
 		id = rand.Intn(905) + 1
 	}
-	idstr := strconv.Itoa(id)
 
-	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
-//	req, err := pokeapi.Pokemon(idstr)
-// TODO: Parse the JSON returned by the Pokeapi call
-	if err != nil {
-		widget.result = err.Error()
-		return
-	}
+//	idstr := strconv.Itoa(id)
+//	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
+//	if err != nil {
+//		widget.result = err.Error()
+//		return
+//	}
 
-	req.Header.Set("User-Agent", "curl")
-	response, err := client.Do(req)
-	if err != nil {
-		widget.result = err.Error()
-		return
+//	req.Header.Set("User-Agent", "curl")
+//	response, err := client.Do(req)
+//	if err != nil {
+//		widget.result = err.Error()
+//		return
+//	}
 
-	}
+	response := pokeapi.Pokemon(strconv.Itoa(id))
 	defer func() { _ = response.Body.Close() }()
 
 	contents, err := io.ReadAll(response.Body)
