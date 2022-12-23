@@ -2,4 +2,5 @@
 
 ## Test release
 
-Try again
+- Added `lunarphase` module successfully.
+- Testing new `pokemon` module
