@@ -14,7 +14,6 @@ import (
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/utils"
 	"github.com/doctorfree/wtf/view"
-	"github.com/doctorfree/wtf/wtf"
 )
 
 type Widget struct {
