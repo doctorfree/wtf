@@ -49,18 +49,24 @@ func (widget *Widget) Refresh() {
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
 
-// this method reads the config and calls pokeapi.co for the Pokemon ID
 func (widget *Widget) pokemon() {
 	client := &http.Client{}
 
-	id := widget.settings.id
-	if widget.settings.random {
-		rand.Seed(time.Now().UnixNano())
-		id = rand.Intn(905) + 1
-	}
+	id_config := widget.settings.id
+	name_config := widget.settings.name
 
-	idstr := strconv.Itoa(id)
-	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
+	if widget.settings.random {
+		name_config = ""
+		rand.Seed(time.Now().UnixNano())
+		id_config = rand.Intn(905) + 1
+	}
+	idstr := strconv.Itoa(id_config)
+
+	if name_config == "" {
+		req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
+	} else {
+		req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+name_config, http.NoBody)
+	}
 	if err != nil {
 		widget.result = err.Error()
 		return
@@ -109,16 +115,15 @@ func (widget *Widget) pokemon() {
 
 func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 
-	args := utils.ToStrs(widget.settings.args)
+	attrs := utils.ToStrs(widget.settings.attributes)
 
-	// if no arguments are defined set default
-	if len(args) == 0 {
-		args = []string{"id", "name", "height", "weight", "genus"}
+	if len(attrs) == 0 {
+		attrs = []string{"id", "name", "height", "weight", "genus"}
 	}
 
 	format := ""
 
-	for _, arg := range args {
+	for _, arg := range attrs {
 		if val, ok := argLookup[strings.ToLower(arg)]; ok {
 			format = format + formatableText(val, strings.ToLower(arg))
 		}
@@ -165,8 +170,8 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		"id":            strconv.Itoa(spec.ID),
 		"name":          pokemon_name,
 		"genus":         pokemon_genus,
-		"height":        fmt.Sprintf("%f (m)", float64(poke.Height) / 10.0),
-		"weight":        fmt.Sprintf("%f (kg)", float64(poke.Weight) / 10.0),
+		"height":        fmt.Sprintf("%6.2f (m)", float64(poke.Height) / 10.0),
+		"weight":        fmt.Sprintf("%6.2f (kg)", float64(poke.Weight) / 10.0),
 	})
 
 	if err != nil {
