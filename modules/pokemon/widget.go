@@ -27,8 +27,8 @@ var argLookup = map[string]string {
 	"id":            "Species ID",
 	"name":          "Species Name",
 	"genus":         "Species Genus",
-	"height":        "Height (m)",
-	"weight":        "Weight (kg)",
+	"height":        "Height",
+	"weight":        "Weight",
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
@@ -165,16 +165,13 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		"id":            strconv.Itoa(spec.ID),
 		"name":          pokemon_name,
 		"genus":         pokemon_genus,
-		"height":        strconv.Itoa(poke.Height),
-		"weight":        strconv.Itoa(poke.Weight),
+		"height":        fmt.Sprintf("%f (m)", float64(poke.Height) / 10.0),
+		"weight":        fmt.Sprintf("%f (kg)", float64(poke.Weight) / 10.0),
 	})
 
 	if err != nil {
 		widget.result = err.Error()
 	}
-
-//	idstr := strconv.Itoa(pokemon_id)
-//  fmt.Println("▐[1;7m No. " + idstr + "[0m▌ [1m" + pokemon_name + " - " + pokemon_genus + "[0m")
 
 	widget.result = resultBuffer.String()
 }
