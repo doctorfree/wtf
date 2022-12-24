@@ -63,11 +63,13 @@ func (widget *Widget) pokemon() {
 	}
 	idstr := strconv.Itoa(id_config)
 
+	qstr := ""
 	if name_config == "" {
-		req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+idstr, http.NoBody)
+		qstr = idstr
 	} else {
-		req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+name_config, http.NoBody)
+		qstr = name_config
 	}
+	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+qstr, http.NoBody)
 	if err != nil {
 		widget.result = err.Error()
 		return
