@@ -23,13 +23,13 @@ type Widget struct {
 	settings *Settings
 }
 
-var argLookup = map[string]string {
-	"id":            "Species ID",
-	"name":          "Species Name",
+var attLookup = map[string]string {
+	"pokemon_id":    "Species ID",
+	"pokemon_name":  "Species Name",
 	"genus":         "Species Genus",
 	"height":        "Height",
 	"weight":        "Weight",
-	"text":          "Flavor Text",
+	"text":          "",
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
@@ -53,8 +53,8 @@ func (widget *Widget) Refresh() {
 func (widget *Widget) pokemon() {
 	client := &http.Client{}
 
-	id_config := widget.settings.id
-	name_config := widget.settings.name
+	id_config := widget.settings.pokemon_id
+	name_config := widget.settings.pokemon_name
 
 	if widget.settings.random {
 		name_config = ""
@@ -68,6 +68,7 @@ func (widget *Widget) pokemon() {
 		qstr = idstr
 	} else {
 		qstr = name_config
+		qstr = strings.ToLower(name_config)
 	}
 	req, err := http.NewRequest("GET", "https://pokeapi.co/api/v2/pokemon/"+qstr, http.NoBody)
 	if err != nil {
@@ -126,9 +127,9 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 
 	format := ""
 
-	for _, arg := range attrs {
-		if val, ok := argLookup[strings.ToLower(arg)]; ok {
-			format = format + formatableText(val, strings.ToLower(arg))
+	for _, att := range attrs {
+		if val, ok := attLookup[strings.ToLower(att)]; ok {
+			format = format + formatableText(val, strings.ToLower(att))
 		}
 	}
 
@@ -186,8 +187,8 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
 		"nameColor":     widget.settings.colors.name,
 		"valueColor":    widget.settings.colors.value,
-		"id":            strconv.Itoa(spec.ID),
-		"name":          pokemon_name,
+		"pokemon_id":    strconv.Itoa(spec.ID),
+		"pokemon_name":  pokemon_name,
 		"genus":         pokemon_genus,
 		"height":        fmt.Sprintf("%6.2f (m)", float64(poke.Height) / 10.0),
 		"weight":        fmt.Sprintf("%6.2f (kg)", float64(poke.Weight) / 10.0),
