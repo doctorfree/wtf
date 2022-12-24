@@ -23,7 +23,7 @@ type Settings struct {
 	name     string
 	random   bool
 	language string
-	attributes []interface{} `help:"Defines what data to display and the order." values:"'height', 'weight', 'name', 'genus', and/or 'id'"`
+	attributes []interface{} `help:"Defines what data to display and the order." values:"'height', 'weight', 'name', 'genus', 'text', and/or 'id'"`
 }
 
 func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *config.Config) *Settings {

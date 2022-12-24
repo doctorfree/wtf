@@ -29,6 +29,7 @@ var argLookup = map[string]string {
 	"genus":         "Species Genus",
 	"height":        "Height",
 	"weight":        "Weight",
+	"text":          "Flavor Text",
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
@@ -118,7 +119,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	attrs := utils.ToStrs(widget.settings.attributes)
 
 	if len(attrs) == 0 {
-		attrs = []string{"id", "name", "height", "weight", "genus"}
+		attrs = []string{"id", "name", "height", "weight", "genus", "text"}
 	}
 
 	format := ""
@@ -164,6 +165,22 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
         }
 	}
 
+	langconfig = widget.settings.language
+	pokemon_text := "Unknown"
+	for i := range spec.FlavorTextEntries {
+        if spec.FlavorTextEntries[i].Language.Name == langconfig {
+			pokemon_text = spec.FlavorTextEntries[i].FlavorText
+        }
+    }
+	if pokemon_text == "Unknown" {
+		langconfig = "en"
+	    for i := range spec.FlavorTextEntries {
+            if spec.FlavorTextEntries[i].Language.Name == langconfig {
+			    pokemon_text = spec.FlavorTextEntries[i].FlavorText
+            }
+        }
+	}
+
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
 		"nameColor":     widget.settings.colors.name,
 		"valueColor":    widget.settings.colors.value,
@@ -172,6 +189,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		"genus":         pokemon_genus,
 		"height":        fmt.Sprintf("%6.2f (m)", float64(poke.Height) / 10.0),
 		"weight":        fmt.Sprintf("%6.2f (kg)", float64(poke.Weight) / 10.0),
+		"text":          pokemon_text,
 	})
 
 	if err != nil {
