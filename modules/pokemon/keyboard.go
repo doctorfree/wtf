@@ -9,7 +9,7 @@ func (widget *Widget) initializeKeyboardControls() {
 	widget.SetKeyboardChar("n", widget.NextPokemon, "Select next Pokémon")
 	widget.SetKeyboardChar("p", widget.PrevPokemon, "Select previous Pokémon")
 	widget.SetKeyboardChar("o", widget.OpenPokemon, "Open Pokémon in browser")
-	widget.SetKeyboardChar("r", widget.ToggleRandom, "Toggle random Pokémon display")
+	widget.SetKeyboardChar("R", widget.ToggleRandom, "Toggle random Pokémon display")
 
 	widget.SetKeyboardKey(tcell.KeyLeft, widget.PrevPokemon, "Select previous Pokémon")
 	widget.SetKeyboardKey(tcell.KeyRight, widget.NextPokemon, "Select next Pokémon")
