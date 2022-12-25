@@ -299,10 +299,14 @@ func (widget *Widget) NextPokemon() {
 // PrevPokemon shows the previous Pokemon ID or wraps to ID 905
 func (widget *Widget) PrevPokemon() {
 
-	if widget.settings.random return
+	if widget.settings.random {
+		return
+	}
 
 	curr_id := widget.settings.pokemon_id
-	if curr_id == nil return
+	if curr_id == nil {
+		return
+	}
 
 	if curr_id == 1 {
 		widget.settings.pokemon_id = 905
