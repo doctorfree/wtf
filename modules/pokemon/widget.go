@@ -294,6 +294,7 @@ func (widget *Widget) NextPokemon() {
 	} else {
 		widget.settings.pokemon_id = curr_id + 1
 	}
+	widget.settings.pokemon_name = ""
 	widget.Refresh()
 }
 
@@ -311,6 +312,7 @@ func (widget *Widget) PrevPokemon() {
 	} else {
 		widget.settings.pokemon_id = curr_id - 1
 	}
+	widget.settings.pokemon_name = ""
 	widget.Refresh()
 }
 
