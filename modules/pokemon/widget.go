@@ -257,7 +257,6 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
     }
 
 	pokemon_abilities := ""
-	pokeability := ""
 	first = false
 //	Abilities []struct {
 //		Ability struct {
@@ -274,7 +273,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		} else {
 			first = true
 		}
-		pokemon_abilites += poke.Abilities[i].Ability.Name
+		pokemon_abilities += poke.Abilities[i].Ability.Name
 	}
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
