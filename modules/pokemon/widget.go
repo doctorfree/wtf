@@ -30,7 +30,7 @@ var attLookup = map[string]string {
 	"pokemon_types": "Pokémon Types",
 	"height":        "Height",
 	"weight":        "Weight",
-	"text":          "",
+	"text":          "\nDescription",
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
@@ -170,23 +170,34 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	}
 
 	langconfig = widget.settings.language
-	pokemon_text := "\n\tUnknown"
+	pokemon_text := "\nUnknown"
 	for i := range spec.FlavorTextEntries {
         if spec.FlavorTextEntries[i].Language.Name == langconfig {
-			pokemon_text = "\n\t" + spec.FlavorTextEntries[i].FlavorText
+			pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
         }
     }
-	if pokemon_text == "\n\tUnknown" {
+	if pokemon_text == "\nUnknown" {
 		langconfig = "en"
 	    for i := range spec.FlavorTextEntries {
             if spec.FlavorTextEntries[i].Language.Name == langconfig {
-			    pokemon_text = "\n\t" + spec.FlavorTextEntries[i].FlavorText
+			    pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
             }
         }
 	}
+
+//	colorReset := "\033[0m"
+//  colorRed := "\033[31m"
+//  colorGreen := "\033[32m"
+//  colorYellow := "\033[33m"
+//  colorBlue := "\033[34m"
+//  colorPurple := "\033[35m"
+//  colorCyan := "\033[36m"
+//  colorWhite := "\033[37m"
+
 	pokemon_types := ""
 	poketype := ""
 	color := 7
+	first := false
 	for i := range poke.Types {
 		poketype = strings.ToUpper(poke.Types[i].Type.Name)
 		switch poketype {
@@ -230,7 +241,12 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 			color=7
 		}
 
-		pokemon_types += " [7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
+		if first {
+			pokemon_types += " "
+		} else {
+			first = true
+		}
+		pokemon_types += "\033[" + strconv.Itoa(color) + "m" + poketype + "\033[0m"
     }
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
