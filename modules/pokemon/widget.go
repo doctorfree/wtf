@@ -27,6 +27,7 @@ var attLookup = map[string]string {
 	"pokemon_id":    "Species ID",
 	"pokemon_name":  "Species Name",
 	"genus":         "Species Genus",
+	"pokemon_types": "Pokémon Types",
 	"height":        "Height",
 	"weight":        "Weight",
 	"text":          "",
@@ -169,20 +170,67 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	}
 
 	langconfig = widget.settings.language
-	pokemon_text := "Unknown"
+	pokemon_text := "\n\tUnknown"
 	for i := range spec.FlavorTextEntries {
         if spec.FlavorTextEntries[i].Language.Name == langconfig {
-			pokemon_text = spec.FlavorTextEntries[i].FlavorText
+			pokemon_text = "\n\t" + spec.FlavorTextEntries[i].FlavorText
         }
     }
-	if pokemon_text == "Unknown" {
+	if pokemon_text == "\n\tUnknown" {
 		langconfig = "en"
 	    for i := range spec.FlavorTextEntries {
             if spec.FlavorTextEntries[i].Language.Name == langconfig {
-			    pokemon_text = spec.FlavorTextEntries[i].FlavorText
+			    pokemon_text = "\n\t" + spec.FlavorTextEntries[i].FlavorText
             }
         }
 	}
+	pokemon_types := ""
+	poketype := ""
+	for i := range poke.Types {
+		poketype = strings.ToUpper(poke.Types[i].Type.Name)
+		switch poketype {
+		case "NORMAL":
+			color=7
+		case "FIRE":
+			color=9
+		case "WATER":
+			color=12
+		case "ELECTRIC":
+			color=11
+		case "GRASS":
+			color=10
+		case "ICE":
+			color=14
+		case "FIGHTING":
+			color=1
+		case "POISON":
+			color=5
+		case "GROUND":
+			color=11
+		case "FLYING":
+			color=6
+		case "PSYCHIC":
+			color=13
+		case "BUG":
+			color=2
+		case "ROCK":
+			color=3
+		case "GHOST":
+			color=4
+		case "DRAGON":
+			color=4
+		case "DARK":
+			color=3
+		case "STEEL":
+			color=8
+		case "FAIRY":
+			color=13
+		default:
+			color=7
+		}
+
+		pokemon_types += " [7;38;5;" + color + "m" + poketype + "[0m"
+    }
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
 		"nameColor":     widget.settings.colors.name,
@@ -190,6 +238,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		"pokemon_id":    strconv.Itoa(spec.ID),
 		"pokemon_name":  pokemon_name,
 		"genus":         pokemon_genus,
+		"pokemon_types": pokemon_types,
 		"height":        fmt.Sprintf("%6.2f (m)", float64(poke.Height) / 10.0),
 		"weight":        fmt.Sprintf("%6.2f (kg)", float64(poke.Weight) / 10.0),
 		"text":          pokemon_text,

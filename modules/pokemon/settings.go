@@ -37,7 +37,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		attributes:   ymlConfig.UList("attributes"),
 	}
 
-	settings.colors.name = ymlConfig.UString("colors.name", "cyan")
+	settings.colors.name = ymlConfig.UString("colors.name", "blue")
 	settings.colors.value = ymlConfig.UString("colors.value", "white")
 
 	settings.SetDocumentationPath("pokemon")
