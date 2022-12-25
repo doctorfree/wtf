@@ -197,50 +197,50 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 
 	pokemon_types := ""
 	poketype := ""
-	color := 7
+//	color := 7
 	first := false
 	for i := range poke.Types {
 		poketype = strings.ToUpper(poke.Types[i].Type.Name)
-		switch poketype {
-		case "NORMAL":
-			color=7
-		case "FIRE":
-			color=9
-		case "WATER":
-			color=12
-		case "ELECTRIC":
-			color=11
-		case "GRASS":
-			color=10
-		case "ICE":
-			color=14
-		case "FIGHTING":
-			color=1
-		case "POISON":
-			color=5
-		case "GROUND":
-			color=11
-		case "FLYING":
-			color=6
-		case "PSYCHIC":
-			color=13
-		case "BUG":
-			color=2
-		case "ROCK":
-			color=3
-		case "GHOST":
-			color=4
-		case "DRAGON":
-			color=4
-		case "DARK":
-			color=3
-		case "STEEL":
-			color=8
-		case "FAIRY":
-			color=13
-		default:
-			color=7
-		}
+//		switch poketype {
+//		case "NORMAL":
+//			color=7
+//		case "FIRE":
+//			color=9
+//		case "WATER":
+//			color=12
+//		case "ELECTRIC":
+//			color=11
+//		case "GRASS":
+//			color=10
+//		case "ICE":
+//			color=14
+//		case "FIGHTING":
+//			color=1
+//		case "POISON":
+//			color=5
+//		case "GROUND":
+//			color=11
+//		case "FLYING":
+//			color=6
+//		case "PSYCHIC":
+//			color=13
+//		case "BUG":
+//			color=2
+//		case "ROCK":
+//			color=3
+//		case "GHOST":
+//			color=4
+//		case "DRAGON":
+//			color=4
+//		case "DARK":
+//			color=3
+//		case "STEEL":
+//			color=8
+//		case "FAIRY":
+//			color=13
+//		default:
+//			color=7
+//		}
 
 		if first {
 			pokemon_types += " "
