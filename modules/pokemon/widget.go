@@ -29,9 +29,8 @@ var attLookup = map[string]string {
 	"genus":         "Species Genus",
 	"pokemon_types": "Pokémon Types",
 	"experience":    "Base Experience",
-	"height":        "Height  (m)",
-	"weight":        "Weight (kg)",
-	"text":          "\nDescription",
+	"size":          "Height (m) / Weight (kg)",
+	"text":          "Description",
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
@@ -124,7 +123,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	attrs := utils.ToStrs(widget.settings.attributes)
 
 	if len(attrs) == 0 {
-		attrs = []string{"pokemon_id", "pokemon_name", "height", "weight", "genus", "pokemon_types", "experience", "text"}
+		attrs = []string{"pokemon_id", "pokemon_name", "size", "genus", "pokemon_types", "experience", "text"}
 	}
 
 	format := ""
@@ -132,11 +131,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	for _, att := range attrs {
 		attlower = strings.ToLower(att)
 		if val, ok := attLookup[attlower]; ok {
-			if attlower == "pokemon_types" {
-				format = format + formatableText(val, attlower)
-			} else {
-				format = format + formatableBothText(val, attlower)
-			}
+			format = format + formatableText(val, attlower)
 		}
 	}
 
@@ -252,19 +247,19 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		} else {
 			first = true
 		}
-		pokemon_types += "[7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
+//		pokemon_types += "[7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
+		pokemon_types += poketype
     }
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
 		"nameColor":      widget.settings.colors.name,
 		"valueColor":     widget.settings.colors.value,
-		"pokemon_id":     strconv.Itoa(spec.ID),
 		"pokemon_name":   pokemon_name,
 		"genus":          pokemon_genus,
+		"pokemon_id":     strconv.Itoa(spec.ID),
 		"pokemon_types":  pokemon_types,
 		"experience":     strconv.Itoa(poke.BaseExperience),
-		"height":         fmt.Sprintf("%6.2f", float64(poke.Height) / 10.0),
-		"weight":         fmt.Sprintf("%6.2f", float64(poke.Weight) / 10.0),
+		"size":           fmt.Sprintf("%6.2f / %6.2f", float64(poke.Height) / 10.0, float64(poke.Weight) / 10.0),
 		"text":           pokemon_text,
 	})
 
@@ -276,9 +271,5 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 }
 
 func formatableText(key, value string) string {
-	return fmt.Sprintf(" [{{.nameColor}}]%s: {{.%s}}\n", key, value)
-}
-
-func formatableBothText(key, value string) string {
 	return fmt.Sprintf(" [{{.nameColor}}]%s: [{{.valueColor}}]{{.%s}}\n", key, value)
 }
