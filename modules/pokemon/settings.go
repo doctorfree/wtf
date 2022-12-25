@@ -23,7 +23,7 @@ type Settings struct {
 	pokemon_name string
 	random       bool
 	language     string
-	attributes []interface{} `help:"Defines what data to display and the order." values:"'height', 'weight', 'abilities', 'experience', 'genus', and/or 'text'"`
+	attributes []interface{} `help:"Defines what data to display and the order." values:"'height', 'weight', 'experience', 'genus', and/or 'text'"`
 }
 
 func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *config.Config) *Settings {
