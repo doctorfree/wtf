@@ -17,7 +17,7 @@ import (
 )
 
 type Widget struct {
-	view.TextWidget
+	view.ScrollableWidget
 
 	result   string
 	settings *Settings
@@ -33,18 +33,16 @@ var attLookup = map[string]string {
 	"text":          "Description",
 }
 
-func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
-	widget := Widget{
-		TextWidget: view.NewTextWidget(tviewApp, redrawChan, nil, settings.Common),
-
-		settings: settings,
+func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.Pages, settings *Settings) *Widget {
+	widget := &Widget{
+		ScrollableWidget: view.NewScrollableWidget(tviewApp, redrawChan, pages, settings.Common),
+		settings:         settings,
 	}
 
+	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
 
-	widget.View.SetWrap(true)
-
-	return &widget
+	return widget
 }
 
 func (widget *Widget) Refresh() {
