@@ -40,7 +40,9 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Sett
 		settings: settings,
 	}
 
-//	widget.View.SetWrap(false)
+	widget.initializeKeyboardControls()
+
+	widget.View.SetWrap(true)
 
 	return &widget
 }
@@ -272,4 +274,36 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 
 func formatableText(key, value string) string {
 	return fmt.Sprintf(" [{{.nameColor}}]%s: [{{.valueColor}}]{{.%s}}\n", key, value)
+}
+
+// NextPokemon shows the next Pokemon ID or wraps to the ID 1
+func (widget *Widget) NextPokemon() {
+
+	if widget.settings.random return
+
+	curr_id := widget.settings.pokemon_id
+	if curr_id == nil return
+
+	if curr_id >= 905 {
+		widget.settings.pokemon_id = 1
+	} else {
+		widget.settings.pokemon_id = curr_id + 1
+	}
+	widget.Refresh()
+}
+
+// PrevPokemon shows the previous Pokemon ID or wraps to ID 905
+func (widget *Widget) PrevPokemon() {
+
+	if widget.settings.random return
+
+	curr_id := widget.settings.pokemon_id
+	if curr_id == nil return
+
+	if curr_id == 1 {
+		widget.settings.pokemon_id = 905
+	} else {
+		widget.settings.pokemon_id = curr_id - 1
+	}
+	widget.Refresh()
 }

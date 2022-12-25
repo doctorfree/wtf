@@ -13,3 +13,7 @@
 ## Direct queries to pokeapi.co
 
 - Testing without pokemon-go with direct queries to pokeapi.co
+
+## Keyboard controls
+
+- Testing keyboard controls (next and previous Pokemon)
