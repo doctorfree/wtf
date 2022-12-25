@@ -27,7 +27,6 @@ var attLookup = map[string]string {
 	"pokemon_id":    "Species ID",
 	"pokemon_name":  "Species Name",
 	"genus":         "Species Genus",
-	"pokemon_types": "Pokémon Types",
 	"height":        "Height",
 	"weight":        "Weight",
 	"text":          "\nDescription",
@@ -40,7 +39,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Sett
 		settings: settings,
 	}
 
-	widget.View.SetWrap(false)
+//	widget.View.SetWrap(false)
 
 	return &widget
 }
