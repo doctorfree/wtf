@@ -284,9 +284,6 @@ func (widget *Widget) NextPokemon() {
 	}
 
 	curr_id := widget.settings.pokemon_id
-	if curr_id == nil {
-		return
-	}
 
 	if curr_id >= 905 {
 		widget.settings.pokemon_id = 1
@@ -304,9 +301,6 @@ func (widget *Widget) PrevPokemon() {
 	}
 
 	curr_id := widget.settings.pokemon_id
-	if curr_id == nil {
-		return
-	}
 
 	if curr_id == 1 {
 		widget.settings.pokemon_id = 905
