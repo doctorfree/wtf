@@ -279,10 +279,14 @@ func formatableText(key, value string) string {
 // NextPokemon shows the next Pokemon ID or wraps to the ID 1
 func (widget *Widget) NextPokemon() {
 
-	if widget.settings.random return
+	if widget.settings.random {
+		return
+	}
 
 	curr_id := widget.settings.pokemon_id
-	if curr_id == nil return
+	if curr_id == nil {
+		return
+	}
 
 	if curr_id >= 905 {
 		widget.settings.pokemon_id = 1
