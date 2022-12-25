@@ -274,7 +274,7 @@ func MakeWidget(
 		widget = pihole.NewWidget(tviewApp, redrawChan, pages, settings)
 	case "pokemon":
 		settings := pokemon.NewSettingsFromYAML(moduleName, moduleConfig, config)
-		widget = pokemon.NewWidget(tviewApp, redrawChan, settings)
+		widget = pokemon.NewWidget(tviewApp, redrawChan, pages, settings)
 	case "power":
 		settings := power.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = power.NewWidget(tviewApp, redrawChan, settings)
