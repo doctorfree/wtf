@@ -159,6 +159,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
         }
 	}
 	widget.settings.pokemon_en = en_pokemon_name
+	widget.settings.pokemon_id = spec.ID
 
 	langconfig = widget.settings.language
 	pokemon_genus := "Unknown"
@@ -327,4 +328,17 @@ func (widget *Widget) OpenPokemon() {
 	}
 	poke_url := "https://bulbapedia.bulbagarden.net/wiki/" + poke_name + "_(Pok%C3%A9mon)"
 	utils.OpenFile(poke_url)
+}
+
+// ToggleRandom toggles the random display of Pokemon
+func (widget *Widget) ToggleRandom() {
+
+	if widget.settings.random {
+		widget.settings.random = false
+	} else {
+		widget.settings.random = true
+	}
+
+	widget.settings.pokemon_name = ""
+	widget.Refresh()
 }
