@@ -142,9 +142,13 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	langconfig := widget.settings.language
 	resultBuffer := new(bytes.Buffer)
 	pokemon_name := "Unknown"
+	en_pokemon_name := "Unknown"
 	for i := range spec.Names {
         if spec.Names[i].Language.Name == langconfig {
 			pokemon_name = spec.Names[i].Name
+        }
+        if spec.Names[i].Language.Name == "en" {
+			en_pokemon_name = spec.Names[i].Name
         }
     }
 	if pokemon_name == "Unknown" {
@@ -152,9 +156,11 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	    for i := range spec.Names {
             if spec.Names[i].Language.Name == langconfig {
 			    pokemon_name = spec.Names[i].Name
+				en_pokemon_name = pokemon_name
             }
         }
 	}
+	widget.en_pokemon_name = en_pokemon_name
 
 	langconfig = widget.settings.language
 	pokemon_genus := "Unknown"
@@ -308,4 +314,14 @@ func (widget *Widget) PrevPokemon() {
 		widget.settings.pokemon_id = curr_id - 1
 	}
 	widget.Refresh()
+}
+
+// https://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pok%C3%A9mon)
+func (widget *Widget) OpenPokemon() {
+	poke_name := widget.en_pokemon_name
+	if poke_name == "Unknown" {
+		return
+	}
+	poke_url := "https://bulbapedia.bulbagarden.net/wiki/" + poke_name + "_(Pok%C3%A9mon)"
+	utils.OpenFile(poke_url)
 }

@@ -6,7 +6,7 @@ import (
 )
 
 const (
-	defaultFocusable = false
+	defaultFocusable = true
 	defaultTitle     = "Pokémon"
 )
 
