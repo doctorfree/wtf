@@ -24,9 +24,9 @@ type Widget struct {
 }
 
 var attLookup = map[string]string {
-	"pokemon_id":    "Species ID",
 	"pokemon_name":  "Species Name",
 	"genus":         "Species Genus",
+	"pokemon_id":    "Species ID",
 	"pokemon_types": "Pokémon Types",
 	"experience":    "Base Experience",
 	"size":          "Height (m) / Weight (kg)",
@@ -259,7 +259,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		"pokemon_id":     strconv.Itoa(spec.ID),
 		"pokemon_types":  pokemon_types,
 		"experience":     strconv.Itoa(poke.BaseExperience),
-		"size":           fmt.Sprintf("%6.2f / %6.2f", float64(poke.Height) / 10.0, float64(poke.Weight) / 10.0),
+		"size":           fmt.Sprintf("%.2f / %.2f", float64(poke.Height) / 10.0, float64(poke.Weight) / 10.0),
 		"text":           pokemon_text,
 	})
 
