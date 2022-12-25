@@ -160,7 +160,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
             }
         }
 	}
-	widget.en_pokemon_name = en_pokemon_name
+	widget.settings.pokemon_en = en_pokemon_name
 
 	langconfig = widget.settings.language
 	pokemon_genus := "Unknown"
@@ -318,8 +318,11 @@ func (widget *Widget) PrevPokemon() {
 
 // https://bulbapedia.bulbagarden.net/wiki/Bulbasaur_(Pok%C3%A9mon)
 func (widget *Widget) OpenPokemon() {
-	poke_name := widget.en_pokemon_name
+	poke_name := widget.settings.pokemon_en
 	if poke_name == "Unknown" {
+		return
+	}
+	if poke_name == "" {
 		return
 	}
 	poke_url := "https://bulbapedia.bulbagarden.net/wiki/" + poke_name + "_(Pok%C3%A9mon)"

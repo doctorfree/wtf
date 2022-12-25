@@ -19,6 +19,7 @@ type Settings struct {
 	*cfg.Common
 
 	colors
+	pokemon_en   string
 	pokemon_id   int
 	pokemon_name string
 	random       bool
@@ -30,6 +31,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 	settings := Settings{
 		Common: cfg.NewCommonSettingsFromModule(name, defaultTitle, defaultFocusable, ymlConfig, globalConfig),
 
+		pokemon_en:   ymlConfig.UString("pokemon_name", ""),
 		pokemon_id:   ymlConfig.UInt("pokemon_id", 0),
 		pokemon_name: ymlConfig.UString("pokemon_name", ""),
 		random:       ymlConfig.UBool("random", true),
