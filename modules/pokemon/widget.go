@@ -186,6 +186,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	}
 	pokemon_types := ""
 	poketype := ""
+	color := 7
 	for i := range poke.Types {
 		poketype = strings.ToUpper(poke.Types[i].Type.Name)
 		switch poketype {
@@ -229,7 +230,7 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 			color=7
 		}
 
-		pokemon_types += " [7;38;5;" + color + "m" + poketype + "[0m"
+		pokemon_types += " [7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
     }
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
