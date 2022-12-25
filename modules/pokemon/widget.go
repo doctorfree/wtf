@@ -128,16 +128,14 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 
 	format := ""
 	attlower := ""
-	full := true
 	for _, att := range attrs {
 		attlower = strings.ToLower(att)
-		if attlower == "pokemon_types" {
-			full = false
-		} else {
-			full = true
-		}
 		if val, ok := attLookup[attlower]; ok {
-			format = format + formatableText(full, val, attlower)
+			if attlower == "pokemon_types" {
+				format = format + formatableText(val, attlower)
+			} else {
+				format = format + formatableBothText(val, attlower)
+			}
 		}
 	}
 
@@ -275,10 +273,10 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	widget.result = resultBuffer.String()
 }
 
-func formatableText(both, key, value string) string {
-	if both {
-		return fmt.Sprintf(" [{{.nameColor}}]%s: [{{.valueColor}}]{{.%s}}\n", key, value)
-	} else {
-		return fmt.Sprintf(" [{{.nameColor}}]%s: {{.%s}}\n", key, value)
-	}
+func formatableText(key, value string) string {
+	return fmt.Sprintf(" [{{.nameColor}}]%s: {{.%s}}\n", key, value)
+}
+
+func formatableBothText(key, value string) string {
+	return fmt.Sprintf(" [{{.nameColor}}]%s: [{{.valueColor}}]{{.%s}}\n", key, value)
 }
