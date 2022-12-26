@@ -336,12 +336,12 @@ func (widget *Widget) ToggleRandom() {
 	if widget.settings.random {
 		widget.settings.random = false
 		// Restore refreshInterval config when in static mode
-		settings.common.RefreshInterval = widget.settings.interval
+		widget.settings.common.RefreshInterval = widget.settings.interval
 	} else {
 		widget.settings.random = true
 		// Ignore refreshInterval config when in random mode
 		// TODO: test if saved 'interval' is less than 60s
-		settings.common.RefreshInterval = "60s"
+		widget.settings.common.RefreshInterval = "60s"
 	}
 
 	widget.settings.pokemon_name = ""
