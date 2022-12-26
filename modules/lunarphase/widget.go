@@ -1,9 +1,11 @@
 package lunarphase
 
 import (
+    "fmt"
 	"io"
 	"net/http"
 	"strings"
+    "time"
 
 	"github.com/rivo/tview"
 	"github.com/wtfutil/wtf/view"
@@ -11,24 +13,36 @@ import (
 )
 
 type Widget struct {
-	view.TextWidget
+	view.ScrollableWidget
 
+	day      string
+	date     time.Time
 	result   string
 	settings *Settings
 }
 
-func NewWidget(tviewApp *tview.Application, redrawChan chan bool, settings *Settings) *Widget {
-	widget := Widget{
-		TextWidget: view.NewTextWidget(tviewApp, redrawChan, nil, settings.Common),
-
-		settings: settings,
+func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.Pages, settings *Settings) *Widget {
+	widget := &Widget{
+		ScrollableWidget: view.NewScrollableWidget(tviewApp, redrawChan, pages, settings.Common),
+		settings:         settings,
 	}
 
-	return &widget
+    widget.date := time.Now()
+    widget.day = widget.date.Format("2006-01-02")
+
+	widget.SetRenderFunction(widget.Refresh)
+	widget.initializeKeyboardControls()
+
+	return widget
 }
 
 func (widget *Widget) Refresh() {
 	widget.lunarPhase()
+
+	if !widget.settings.Enabled {
+		widget.View.Clear()
+		return
+	}
 
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
@@ -39,7 +53,8 @@ func (widget *Widget) lunarPhase() {
 
 	language := widget.settings.language
 
-	req, err := http.NewRequest("GET", "https://wttr.in/Moon?AF"+language, http.NoBody)
+	// curl wttr.in/Moon@2016-12-25
+	req, err := http.NewRequest("GET", "https://wttr.in/Moon@" + widget.day + "?AF&lang=" + language, http.NoBody)
 	if err != nil {
 		widget.result = err.Error()
 		return
@@ -62,4 +77,50 @@ func (widget *Widget) lunarPhase() {
 	}
 
 	widget.result = strings.TrimSpace(wtf.ASCIItoTviewColors(string(contents)))
+}
+
+// NextDay shows the next day's lunar phase
+func (widget *Widget) NextDay() {
+	tomorrow := widget.date.AddDate(0, 0, 1)
+	setDay(tomorrow)
+}
+
+// NextWeek shows the next week's lunar phase
+func (widget *Widget) NextWeek() {
+	nextweek := widget.date.AddDate(0, 0, 7)
+	setDay(nextweek)
+}
+
+// PrevDay shows the previous day's lunar phase
+func (widget *Widget) PrevDay() {
+	yesterday := widget.date.AddDate(0, 0, -1)
+	setDay(yesterday)
+}
+
+// PrevWeek shows the previous week's lunar phase
+func (widget *Widget) PrevWeek() {
+	lastweek := widget.date.AddDate(0, 0, -7)
+	setDay(lastweek)
+}
+
+func (widget *Widget) setDay(ts time.Time) {
+	widget.date = ts
+    widget.day = widget.date.Format("2006-01-02")
+	widget.Refresh()
+}
+
+func (widget *Widget) OpenMoonPhase() {
+	utils.OpenFile("https://nineplanets.org/moon/phase/today")
+}
+
+// Disable/Enable the widget
+func (widget *Widget) DisableWidget() {
+
+	if widget.settings.Enabled {
+		widget.settings.Enabled = false
+	} else {
+		widget.settings.Enabled = true
+	}
+
+	widget.Refresh()
 }
