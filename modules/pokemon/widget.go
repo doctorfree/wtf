@@ -348,3 +348,15 @@ func (widget *Widget) ToggleRandom() {
 	widget.settings.pokemon_name = ""
 	widget.Refresh()
 }
+
+// Disable/Enable the widget
+func (widget *Widget) DisableWidget() {
+
+	if widget.settings.enabled {
+		widget.settings.enabled = false
+	} else {
+		widget.settings.enabled = true
+	}
+
+	widget.Refresh()
+}
