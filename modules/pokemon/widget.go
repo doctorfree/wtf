@@ -352,10 +352,10 @@ func (widget *Widget) ToggleRandom() {
 // Disable/Enable the widget
 func (widget *Widget) DisableWidget() {
 
-	if widget.settings.enabled {
-		widget.settings.enabled = false
+	if widget.settings.Enabled {
+		widget.settings.Enabled = false
 	} else {
-		widget.settings.enabled = true
+		widget.settings.Enabled = true
 	}
 
 	widget.Refresh()
