@@ -16,8 +16,12 @@ usage() {
 CLEAN=
 DRAFT=
 PACKAGE=1
-while getopts "cdpu" flag; do
+BRANCH="pokemon"
+while getopts "b:cdpu" flag; do
     case $flag in
+        b)
+            BRANCH="${OPTARG}"
+            ;;
         c)
             CLEAN=1
             ;;
@@ -38,6 +42,7 @@ ANNO="Pokemon test release, Version ${VERSION} Release ${RELEASE}"
 
 gh release create v${VERSION}r${RELEASE} ${DRAFT} \
                   --title "${ANNO}" \
+                  --target "${BRANCH}" \
                   --notes-file Release_Notes.md
 
 git fetch --tags origin
