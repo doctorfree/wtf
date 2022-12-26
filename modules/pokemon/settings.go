@@ -4,7 +4,7 @@ import (
 	"time"
 
 	"github.com/olebedev/config"
-	"github.com/doctorfree/wtf/cfg"
+	"github.com/wtfutil/wtf/cfg"
 )
 
 const (

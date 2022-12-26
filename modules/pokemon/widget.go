@@ -12,8 +12,8 @@ import (
 	"time"
 
 	"github.com/rivo/tview"
-	"github.com/doctorfree/wtf/utils"
-	"github.com/doctorfree/wtf/view"
+	"github.com/wtfutil/wtf/utils"
+	"github.com/wtfutil/wtf/view"
 )
 
 type Widget struct {
