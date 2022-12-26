@@ -63,3 +63,5 @@ func (widget *Widget) lunarPhase() {
 
 	widget.result = strings.TrimSpace(wtf.ASCIItoTviewColors(string(contents)))
 }
+
+// curl wttr.in/Moon@2016-12-25

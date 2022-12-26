@@ -1,6 +1,8 @@
 package pokemon
 
 import (
+	"time"
+
 	"github.com/olebedev/config"
 	"github.com/doctorfree/wtf/cfg"
 )
@@ -24,6 +26,7 @@ type Settings struct {
 	pokemon_name string
 	random       bool
 	language     string
+	interval     time.Duration
 	attributes []interface{} `help:"Defines what data to display and the order." values:"'size', 'experience', 'genus', and/or 'text'"`
 }
 
@@ -36,6 +39,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		pokemon_name: ymlConfig.UString("pokemon_name", ""),
 		random:       ymlConfig.UBool("random", true),
 		language:     ymlConfig.UString("language", "en"),
+		interval:     cfg.ParseTimeString(ymlConfig, "refreshInterval", "60s")
 		attributes:   ymlConfig.UList("attributes"),
 	}
 
