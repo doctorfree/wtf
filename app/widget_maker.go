@@ -47,7 +47,7 @@ import (
 	"github.com/wtfutil/wtf/modules/krisinformation"
 	"github.com/wtfutil/wtf/modules/kubernetes"
 	"github.com/wtfutil/wtf/modules/logger"
-	"github.com/wtfutil/wtf/modules/lunarphase"
+	"github.com/doctorfree/wtf/modules/lunarphase"
 	"github.com/wtfutil/wtf/modules/mercurial"
 	"github.com/wtfutil/wtf/modules/nbascore"
 	"github.com/wtfutil/wtf/modules/newrelic"
