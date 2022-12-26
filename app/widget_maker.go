@@ -56,6 +56,7 @@ import (
 	"github.com/wtfutil/wtf/modules/pagerduty"
 	"github.com/wtfutil/wtf/modules/pihole"
 	"github.com/wtfutil/wtf/modules/pocket"
+	"github.com/wtfutil/wtf/modules/pokemon"
 	"github.com/wtfutil/wtf/modules/power"
 	"github.com/wtfutil/wtf/modules/resourceusage"
 	"github.com/wtfutil/wtf/modules/rollbar"
@@ -271,6 +272,9 @@ func MakeWidget(
 	case "pihole":
 		settings := pihole.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = pihole.NewWidget(tviewApp, redrawChan, pages, settings)
+	case "pokemon":
+		settings := pokemon.NewSettingsFromYAML(moduleName, moduleConfig, config)
+		widget = pokemon.NewWidget(tviewApp, redrawChan, pages, settings)
 	case "power":
 		settings := power.NewSettingsFromYAML(moduleName, moduleConfig, config)
 		widget = power.NewWidget(tviewApp, redrawChan, settings)
