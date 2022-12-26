@@ -48,6 +48,11 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 func (widget *Widget) Refresh() {
 	widget.pokemon()
 
+	if !widget.settings.Enabled {
+		widget.View.Clear()
+		return
+	}
+
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
 

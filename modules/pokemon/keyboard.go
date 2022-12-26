@@ -15,7 +15,7 @@ func (widget *Widget) initializeKeyboardControls() {
 	widget.SetKeyboardKey(tcell.KeyRight, widget.NextPokemon, "Select next Pokémon")
 	widget.SetKeyboardKey(tcell.KeyEnter, widget.OpenPokemon, "Open Pokémon at Bulbapedia in browser")
 	widget.SetKeyboardKey(tcell.KeyUp, widget.ToggleRandom, "Toggle random Pokémon display")
-	widget.SetKeyboardKey(tcell.KeyCtrlD, widget.DisableWidget, "Disable this Pokémon widgetinstance")
+	widget.SetKeyboardKey(tcell.KeyCtrlD, widget.DisableWidget, "Disable/Enable this Pokémon widget instance")
 }
 
 //  Try this to delete the selected widget with Ctrl-D
