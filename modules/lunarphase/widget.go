@@ -27,10 +27,11 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 	widget := &Widget{
 		ScrollableWidget: view.NewScrollableWidget(tviewApp, redrawChan, pages, settings.Common),
 		settings: settings,
-		timeout:  time.Duration(settings.requestTimeout) + time.Second,
 	}
 
     widget.titleBase = widget.settings.Title
+//	widget.timeout = time.Duration(widget.settings.requestTimeout) + time.Second,
+	widget.timeout = widget.settings.requestTimeout * time.Second,
     widget.date = time.Now()
     widget.day = widget.date.Format(dateFormat)
 

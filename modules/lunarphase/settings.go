@@ -24,7 +24,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		Common: cfg.NewCommonSettingsFromModule(name, defaultTitle, defaultFocusable, ymlConfig, globalConfig),
 
 		language: ymlConfig.UString("language", "en"),
-		requestTimeout: ymlConfig.UInt("timeout", 15),
+		requestTimeout: ymlConfig.UInt("timeout", 30),
 	}
 
 	settings.SetDocumentationPath("lunarphase")
