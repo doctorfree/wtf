@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strings"
     "time"
-    "utils"
 
 	"github.com/rivo/tview"
+	"github.com/doctorfree/wtf/utils"
 	"github.com/doctorfree/wtf/view"
 	"github.com/doctorfree/wtf/wtf"
 )
