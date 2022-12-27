@@ -28,7 +28,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 	}
 
     widget.date = time.Now()
-    widget.day = widget.date.Format("2006-01-02")
+    widget.day = widget.date.Format(dateFormat)
 
 	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
@@ -105,7 +105,7 @@ func (widget *Widget) PrevWeek() {
 
 func (widget *Widget) setDay(ts time.Time) {
 	widget.date = ts
-    widget.day = widget.date.Format("2006-01-02")
+    widget.day = widget.date.Format(dateFormat)
 	widget.Refresh()
 }
 
