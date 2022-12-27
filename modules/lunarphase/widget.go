@@ -60,7 +60,6 @@ func (widget *Widget) lunarPhase() {
 
 	language := widget.settings.language
 
-	// curl wttr.in/Moon@2016-12-25
 	req, err := http.NewRequest("GET", "https://wttr.in/Moon@" + widget.day + "?AF&lang=" + language, http.NoBody)
 	if err != nil {
 		widget.result = err.Error()
@@ -85,25 +84,25 @@ func (widget *Widget) lunarPhase() {
 	widget.result = strings.TrimSpace(wtf.ASCIItoTviewColors(string(contents)))
 }
 
-// NextDay shows the next day's lunar phase
+// NextDay shows the next day's lunar phase (KeyRight / 'n')
 func (widget *Widget) NextDay() {
 	tomorrow := widget.date.AddDate(0, 0, 1)
 	widget.setDay(tomorrow)
 }
 
-// NextWeek shows the next week's lunar phase
+// NextWeek shows the next week's lunar phase (KeyUp / 'N')
 func (widget *Widget) NextWeek() {
 	nextweek := widget.date.AddDate(0, 0, 7)
 	widget.setDay(nextweek)
 }
 
-// PrevDay shows the previous day's lunar phase
+// PrevDay shows the previous day's lunar phase (KeyLeft / 'p')
 func (widget *Widget) PrevDay() {
 	yesterday := widget.date.AddDate(0, 0, -1)
 	widget.setDay(yesterday)
 }
 
-// PrevWeek shows the previous week's lunar phase
+// PrevWeek shows the previous week's lunar phase (KeyDown / 'P')
 func (widget *Widget) PrevWeek() {
 	lastweek := widget.date.AddDate(0, 0, -7)
 	widget.setDay(lastweek)
@@ -115,12 +114,13 @@ func (widget *Widget) setDay(ts time.Time) {
 	widget.Refresh()
 }
 
+// Open nineplanets.org in a browser (Enter / 'o')
 func (widget *Widget) OpenMoonPhase() {
 	phasedate := widget.date.Format(phaseFormat)
 	utils.OpenFile("https://nineplanets.org/moon/phase/" + phasedate + "/")
 }
 
-// Disable/Enable the widget
+// Disable/Enable the widget (Ctrl-D)
 func (widget *Widget) DisableWidget() {
 
 	if widget.settings.Enabled {
