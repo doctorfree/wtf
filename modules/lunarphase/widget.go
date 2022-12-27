@@ -15,10 +15,11 @@ import (
 type Widget struct {
 	view.ScrollableWidget
 
-	day      string
-	date     time.Time
-	result   string
-	settings *Settings
+	day       string
+	date      time.Time
+	result    string
+	settings  *Settings
+	titleBase string
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.Pages, settings *Settings) *Widget {
@@ -27,6 +28,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 		settings:         settings,
 	}
 
+    widget.titleBase = widget.settings.Title
     widget.date = time.Now()
     widget.day = widget.date.Format(dateFormat)
 
@@ -38,12 +40,13 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 
 func (widget *Widget) Refresh() {
 	widget.lunarPhase()
+	time.Sleep(time.Millisecond * 500)
 
 	if !widget.settings.Enabled {
 		widget.View.Clear()
 		return
 	}
-	widget.settings.Common.Title = defaultTitle + " " + widget.day
+	widget.settings.Common.Title = widget.titleBase + " " + widget.day
 
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
