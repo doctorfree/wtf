@@ -55,7 +55,8 @@ func (widget *Widget) Refresh() {
 
 // this method reads the config and calls wttr.in for lunar phase
 func (widget *Widget) lunarPhase() {
-	client := &http.Client{
+//	client := &http.Client{
+	client := http.Client{
 		Timeout: widget.timeout,
 	}
 
@@ -74,7 +75,6 @@ func (widget *Widget) lunarPhase() {
 	if err != nil {
 		widget.result = err.Error()
 		return
-
 	}
 	defer func() { _ = response.Body.Close() }()
 
