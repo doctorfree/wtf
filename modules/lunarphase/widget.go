@@ -19,13 +19,15 @@ type Widget struct {
 	date      time.Time
 	result    string
 	settings  *Settings
+	timeout   time.Duration
 	titleBase string
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.Pages, settings *Settings) *Widget {
 	widget := &Widget{
 		ScrollableWidget: view.NewScrollableWidget(tviewApp, redrawChan, pages, settings.Common),
-		settings:         settings,
+		settings: settings,
+		timeout:  time.Duration(settings.requestTimeout) + time.Second,
 	}
 
     widget.titleBase = widget.settings.Title
@@ -40,7 +42,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 
 func (widget *Widget) Refresh() {
 	widget.lunarPhase()
-	time.Sleep(time.Millisecond * 500)
+	time.Sleep(time.Second * 1)
 
 	if !widget.settings.Enabled {
 		widget.View.Clear()
@@ -53,7 +55,9 @@ func (widget *Widget) Refresh() {
 
 // this method reads the config and calls wttr.in for lunar phase
 func (widget *Widget) lunarPhase() {
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: widget.timeout,
+	}
 
 	language := widget.settings.language
 

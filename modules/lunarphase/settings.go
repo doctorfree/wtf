@@ -16,6 +16,7 @@ type Settings struct {
 	*cfg.Common
 
 	language string
+	requestTimeout int
 }
 
 func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *config.Config) *Settings {
@@ -23,6 +24,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		Common: cfg.NewCommonSettingsFromModule(name, defaultTitle, defaultFocusable, ymlConfig, globalConfig),
 
 		language: ymlConfig.UString("language", "en"),
+		requestTimeout: ymlConfig.UInt("timeout", 15),
 	}
 
 	settings.SetDocumentationPath("lunarphase")
