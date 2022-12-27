@@ -1,11 +1,11 @@
 package lunarphase
 
 import (
-    "fmt"
 	"io"
 	"net/http"
 	"strings"
     "time"
+    "utils"
 
 	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/view"
@@ -27,7 +27,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 		settings:         settings,
 	}
 
-    widget.date := time.Now()
+    widget.date = time.Now()
     widget.day = widget.date.Format("2006-01-02")
 
 	widget.SetRenderFunction(widget.Refresh)
@@ -82,25 +82,25 @@ func (widget *Widget) lunarPhase() {
 // NextDay shows the next day's lunar phase
 func (widget *Widget) NextDay() {
 	tomorrow := widget.date.AddDate(0, 0, 1)
-	setDay(tomorrow)
+	widget.setDay(tomorrow)
 }
 
 // NextWeek shows the next week's lunar phase
 func (widget *Widget) NextWeek() {
 	nextweek := widget.date.AddDate(0, 0, 7)
-	setDay(nextweek)
+	widget.setDay(nextweek)
 }
 
 // PrevDay shows the previous day's lunar phase
 func (widget *Widget) PrevDay() {
 	yesterday := widget.date.AddDate(0, 0, -1)
-	setDay(yesterday)
+	widget.setDay(yesterday)
 }
 
 // PrevWeek shows the previous week's lunar phase
 func (widget *Widget) PrevWeek() {
 	lastweek := widget.date.AddDate(0, 0, -7)
-	setDay(lastweek)
+	widget.setDay(lastweek)
 }
 
 func (widget *Widget) setDay(ts time.Time) {
