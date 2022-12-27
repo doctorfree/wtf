@@ -30,8 +30,8 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 	}
 
     widget.titleBase = widget.settings.Title
-//	widget.timeout = time.Duration(widget.settings.requestTimeout) + time.Second,
-	widget.timeout = widget.settings.requestTimeout * time.Second,
+//	widget.timeout = time.Duration(widget.settings.requestTimeout) + time.Second
+	widget.timeout = widget.settings.requestTimeout * time.Second
     widget.date = time.Now()
     widget.day = widget.date.Format(dateFormat)
 
