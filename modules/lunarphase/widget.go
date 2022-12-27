@@ -42,7 +42,6 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 
 func (widget *Widget) Refresh() {
 	widget.lunarPhase()
-	time.Sleep(time.Second * 1)
 
 	if !widget.settings.Enabled {
 		widget.View.Clear()
@@ -55,8 +54,7 @@ func (widget *Widget) Refresh() {
 
 // this method reads the config and calls wttr.in for lunar phase
 func (widget *Widget) lunarPhase() {
-//	client := &http.Client{
-	client := http.Client{
+	client := &http.Client{
 		Timeout: widget.timeout,
 	}
 
