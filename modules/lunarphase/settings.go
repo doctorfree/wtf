@@ -8,7 +8,7 @@ import (
 const (
 	defaultFocusable = true
 	defaultTitle     = "Phase of the Moon"
-	dateFormat       = "2022-12-25"
+	dateFormat       = "2006-01-02"
 )
 
 type Settings struct {
