@@ -9,6 +9,7 @@ const (
 	defaultFocusable = true
 	defaultTitle     = "Phase of the Moon"
 	dateFormat       = "2006-01-02"
+	phaseFormat      = "01-02-2006"
 )
 
 type Settings struct {

@@ -43,7 +43,7 @@ func (widget *Widget) Refresh() {
 		widget.View.Clear()
 		return
 	}
-	widget.settings.Common.Title = "Phase of the Moon " + widget.day
+	widget.settings.Common.Title = defaultTitle + " " + widget.day
 
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
@@ -111,7 +111,8 @@ func (widget *Widget) setDay(ts time.Time) {
 }
 
 func (widget *Widget) OpenMoonPhase() {
-	utils.OpenFile("https://nineplanets.org/moon/phase/today")
+	phasedate := widget.date.Format(phaseFormat)
+	utils.OpenFile("https://nineplanets.org/moon/phase/" + phasedate + "/")
 }
 
 // Disable/Enable the widget
