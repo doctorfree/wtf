@@ -43,6 +43,7 @@ func (widget *Widget) Refresh() {
 		widget.View.Clear()
 		return
 	}
+	widget.settings.Common.Title = "Phase of the Moon " + widget.day
 
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
