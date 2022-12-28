@@ -19,6 +19,8 @@ import (
 type Widget struct {
 	view.ScrollableWidget
 
+	RefreshInterval  time.Duration
+
 	result   string
 	settings *Settings
 	timeout  time.Duration
@@ -40,6 +42,11 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 		settings:         settings,
 	}
 
+	if widget.settings.random {
+		widget.RefreshInterval = widget.settings.randomInterval
+	} else {
+		widget.RefreshInterval = widget.settings.staticInterval
+	}
 	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
 	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
@@ -67,13 +74,13 @@ func (widget *Widget) pokemon() {
 	name_config := widget.settings.pokemon_name
 
 //	widget.settings.Common.RefreshInterval = widget.settings.staticInterval
-	widget.CommonSettings().RefreshInterval = widget.settings.staticInterval
+	widget.RefreshInterval = widget.settings.staticInterval
 	if widget.settings.random {
 		name_config = ""
 		rand.Seed(time.Now().UnixNano())
 		id_config = rand.Intn(905) + 1
 //		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
-		widget.CommonSettings().RefreshInterval = widget.settings.randomInterval
+		widget.RefreshInterval = widget.settings.randomInterval
 	}
 	idstr := strconv.Itoa(id_config)
 
@@ -356,13 +363,12 @@ func (widget *Widget) ToggleRandom() {
 		widget.settings.random = false
 		// Restore refreshInterval config when in static mode
 //		widget.settings.Common.RefreshInterval = widget.settings.staticInterval
-		widget.CommonSettings().RefreshInterval = widget.settings.staticInterval
+		widget.RefreshInterval = widget.settings.staticInterval
 	} else {
 		widget.settings.random = true
 		// Ignore refreshInterval config when in random mode
-		// TODO: test if saved 'interval' is less than 60s
 //		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
-		widget.CommonSettings().RefreshInterval = widget.settings.randomInterval
+		widget.RefreshInterval = widget.settings.randomInterval
 	}
 
 	widget.settings.pokemon_name = ""

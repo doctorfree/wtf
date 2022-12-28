@@ -43,8 +43,8 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		pokemon_name:   ymlConfig.UString("pokemon_name", ""),
 		random:         ymlConfig.UBool("random", true),
 		language:       ymlConfig.UString("language", "en"),
-		staticInterval: cfg.ParseTimeString(ymlConfig, "staticInterval", "60s"),
-		randomInterval: cfg.ParseTimeString(ymlConfig, "randomInterval", "10s"),
+		staticInterval: cfg.ParseTimeString(ymlConfig, "staticInterval", "300s"),
+		randomInterval: cfg.ParseTimeString(ymlConfig, "randomInterval", "30s"),
 		requestTimeout: ymlConfig.UInt("timeout", 30),
 		attributes:     ymlConfig.UList("attributes"),
 	}
