@@ -2,8 +2,8 @@ package pokemon
 
 import (
 	"bytes"
-    "encoding/json"
-    "fmt"
+	"encoding/json"
+	"fmt"
 	"math/rand"
 	"net/http"
 	"strconv"
@@ -11,9 +11,9 @@ import (
 	"text/template"
 	"time"
 
-	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/utils"
 	"github.com/doctorfree/wtf/view"
+	"github.com/rivo/tview"
 )
 
 type Widget struct {
@@ -21,9 +21,10 @@ type Widget struct {
 
 	result   string
 	settings *Settings
+	timeout  time.Duration
 }
 
-var attLookup = map[string]string {
+var attLookup = map[string]string{
 	"pokemon_name":  "Species Name",
 	"genus":         "Species Genus",
 	"pokemon_id":    "Species ID",
@@ -39,6 +40,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 		settings:         settings,
 	}
 
+	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
 	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
 
@@ -57,7 +59,9 @@ func (widget *Widget) Refresh() {
 }
 
 func (widget *Widget) pokemon() {
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: widget.timeout,
+	}
 
 	id_config := widget.settings.pokemon_id
 	name_config := widget.settings.pokemon_name
@@ -92,7 +96,7 @@ func (widget *Widget) pokemon() {
 	}
 	defer func() { _ = response.Body.Close() }()
 
-    var pokemonObject Pokemon
+	var pokemonObject Pokemon
 	err = json.NewDecoder(response.Body).Decode(&pokemonObject)
 	if err != nil {
 		widget.result = err.Error()
@@ -114,7 +118,7 @@ func (widget *Widget) pokemon() {
 	}
 	defer func() { _ = spresponse.Body.Close() }()
 
-    var speciesObject PokemonSpecies
+	var speciesObject PokemonSpecies
 	err = json.NewDecoder(spresponse.Body).Decode(&speciesObject)
 	if err != nil {
 		widget.result = err.Error()
@@ -148,21 +152,21 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	pokemon_name := "Unknown"
 	en_pokemon_name := "Unknown"
 	for i := range spec.Names {
-        if spec.Names[i].Language.Name == langconfig {
+		if spec.Names[i].Language.Name == langconfig {
 			pokemon_name = spec.Names[i].Name
-        }
-        if spec.Names[i].Language.Name == "en" {
+		}
+		if spec.Names[i].Language.Name == "en" {
 			en_pokemon_name = spec.Names[i].Name
-        }
-    }
+		}
+	}
 	if pokemon_name == "Unknown" {
 		langconfig = "en"
-	    for i := range spec.Names {
-            if spec.Names[i].Language.Name == langconfig {
-			    pokemon_name = spec.Names[i].Name
+		for i := range spec.Names {
+			if spec.Names[i].Language.Name == langconfig {
+				pokemon_name = spec.Names[i].Name
 				en_pokemon_name = pokemon_name
-            }
-        }
+			}
+		}
 	}
 	widget.settings.pokemon_en = en_pokemon_name
 	widget.settings.pokemon_id = spec.ID
@@ -170,110 +174,110 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	langconfig = widget.settings.language
 	pokemon_genus := "Unknown"
 	for i := range spec.Genera {
-        if spec.Genera[i].Language.Name == langconfig {
+		if spec.Genera[i].Language.Name == langconfig {
 			pokemon_genus = spec.Genera[i].Genus
-        }
-    }
+		}
+	}
 	if pokemon_genus == "Unknown" {
 		langconfig = "en"
-	    for i := range spec.Genera {
-            if spec.Genera[i].Language.Name == langconfig {
-			    pokemon_genus = spec.Genera[i].Genus
-            }
-        }
+		for i := range spec.Genera {
+			if spec.Genera[i].Language.Name == langconfig {
+				pokemon_genus = spec.Genera[i].Genus
+			}
+		}
 	}
 
 	langconfig = widget.settings.language
 	pokemon_text := "\nUnknown"
 	for i := range spec.FlavorTextEntries {
-        if spec.FlavorTextEntries[i].Language.Name == langconfig {
+		if spec.FlavorTextEntries[i].Language.Name == langconfig {
 			pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
-        }
-    }
+		}
+	}
 	if pokemon_text == "\nUnknown" {
 		langconfig = "en"
-	    for i := range spec.FlavorTextEntries {
-            if spec.FlavorTextEntries[i].Language.Name == langconfig {
-			    pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
-            }
-        }
+		for i := range spec.FlavorTextEntries {
+			if spec.FlavorTextEntries[i].Language.Name == langconfig {
+				pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
+			}
+		}
 	}
 
-//	colorReset := "\033[0m"
-//  colorRed := "\033[31m"
-//  colorGreen := "\033[32m"
-//  colorYellow := "\033[33m"
-//  colorBlue := "\033[34m"
-//  colorPurple := "\033[35m"
-//  colorCyan := "\033[36m"
-//  colorWhite := "\033[37m"
+	//	colorReset := "\033[0m"
+	//  colorRed := "\033[31m"
+	//  colorGreen := "\033[32m"
+	//  colorYellow := "\033[33m"
+	//  colorBlue := "\033[34m"
+	//  colorPurple := "\033[35m"
+	//  colorCyan := "\033[36m"
+	//  colorWhite := "\033[37m"
 
 	pokemon_types := ""
 	poketype := ""
-//	color := 7
+	//	color := 7
 	first := false
 	for i := range poke.Types {
 		poketype = strings.ToUpper(poke.Types[i].Type.Name)
-//		switch poketype {
-//		case "NORMAL":
-//			color=7
-//		case "FIRE":
-//			color=9
-//		case "WATER":
-//			color=12
-//		case "ELECTRIC":
-//			color=11
-//		case "GRASS":
-//			color=10
-//		case "ICE":
-//			color=14
-//		case "FIGHTING":
-//			color=1
-//		case "POISON":
-//			color=5
-//		case "GROUND":
-//			color=11
-//		case "FLYING":
-//			color=6
-//		case "PSYCHIC":
-//			color=13
-//		case "BUG":
-//			color=2
-//		case "ROCK":
-//			color=3
-//		case "GHOST":
-//			color=4
-//		case "DRAGON":
-//			color=4
-//		case "DARK":
-//			color=3
-//		case "STEEL":
-//			color=8
-//		case "FAIRY":
-//			color=13
-//		default:
-//			color=7
-//		}
+		//		switch poketype {
+		//		case "NORMAL":
+		//			color=7
+		//		case "FIRE":
+		//			color=9
+		//		case "WATER":
+		//			color=12
+		//		case "ELECTRIC":
+		//			color=11
+		//		case "GRASS":
+		//			color=10
+		//		case "ICE":
+		//			color=14
+		//		case "FIGHTING":
+		//			color=1
+		//		case "POISON":
+		//			color=5
+		//		case "GROUND":
+		//			color=11
+		//		case "FLYING":
+		//			color=6
+		//		case "PSYCHIC":
+		//			color=13
+		//		case "BUG":
+		//			color=2
+		//		case "ROCK":
+		//			color=3
+		//		case "GHOST":
+		//			color=4
+		//		case "DRAGON":
+		//			color=4
+		//		case "DARK":
+		//			color=3
+		//		case "STEEL":
+		//			color=8
+		//		case "FAIRY":
+		//			color=13
+		//		default:
+		//			color=7
+		//		}
 
 		if first {
 			pokemon_types += " "
 		} else {
 			first = true
 		}
-//		pokemon_types += "[7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
+		//		pokemon_types += "[7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
 		pokemon_types += poketype
-    }
+	}
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
-		"nameColor":      widget.settings.colors.name,
-		"valueColor":     widget.settings.colors.value,
-		"pokemon_name":   pokemon_name,
-		"genus":          pokemon_genus,
-		"pokemon_id":     strconv.Itoa(spec.ID),
-		"pokemon_types":  pokemon_types,
-		"experience":     strconv.Itoa(poke.BaseExperience),
-		"size":           fmt.Sprintf("%.2f / %.2f", float64(poke.Height) / 10.0, float64(poke.Weight) / 10.0),
-		"text":           pokemon_text,
+		"nameColor":     widget.settings.colors.name,
+		"valueColor":    widget.settings.colors.value,
+		"pokemon_name":  pokemon_name,
+		"genus":         pokemon_genus,
+		"pokemon_id":    strconv.Itoa(spec.ID),
+		"pokemon_types": pokemon_types,
+		"experience":    strconv.Itoa(poke.BaseExperience),
+		"size":          fmt.Sprintf("%.2f / %.2f", float64(poke.Height)/10.0, float64(poke.Weight)/10.0),
+		"text":          pokemon_text,
 	})
 
 	if err != nil {

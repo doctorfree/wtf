@@ -1,4 +1,5 @@
 package pokemon
+
 // From https://github.com/mtslzr/pokeapi-go
 
 // Ability is a single ability.

@@ -1,8 +1,6 @@
 package app
 
 import (
-	"github.com/olebedev/config"
-	"github.com/rivo/tview"
 	"github.com/doctorfree/wtf/modules/airbrake"
 	"github.com/doctorfree/wtf/modules/asana"
 	"github.com/doctorfree/wtf/modules/azuredevops"
@@ -87,6 +85,8 @@ import (
 	"github.com/doctorfree/wtf/modules/weatherservices/weather"
 	"github.com/doctorfree/wtf/modules/zendesk"
 	"github.com/doctorfree/wtf/wtf"
+	"github.com/olebedev/config"
+	"github.com/rivo/tview"
 )
 
 // MakeWidget creates and returns instances of widgets

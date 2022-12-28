@@ -3,8 +3,8 @@ package pokemon
 import (
 	"time"
 
-	"github.com/olebedev/config"
 	"github.com/doctorfree/wtf/cfg"
+	"github.com/olebedev/config"
 )
 
 const (
@@ -21,14 +21,15 @@ type Settings struct {
 	*cfg.Common
 
 	colors
-	pokemon_en      string
-	pokemon_id      int
-	pokemon_name    string
-	random          bool
-	language        string
-	interval        time.Duration
-	randomInterval  time.Duration
-	attributes []interface{} `help:"Defines what data to display and the order." values:"'size', 'experience', 'genus', and/or 'text'"`
+	pokemon_en     string
+	pokemon_id     int
+	pokemon_name   string
+	random         bool
+	language       string
+	interval       time.Duration
+	randomInterval time.Duration
+	requestTimeout int
+	attributes     []interface{} `help:"Defines what data to display and the order." values:"'size', 'experience', 'genus', and/or 'text'"`
 }
 
 func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *config.Config) *Settings {
@@ -42,6 +43,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		language:       ymlConfig.UString("language", "en"),
 		interval:       cfg.ParseTimeString(ymlConfig, "refreshInterval", "60s"),
 		randomInterval: cfg.ParseTimeString(ymlConfig, "randomInterval", "60s"),
+		requestTimeout: ymlConfig.UInt("timeout", 30),
 		attributes:     ymlConfig.UList("attributes"),
 	}
 
