@@ -268,31 +268,23 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		pokemon_types += poketype
 	}
 
+	name_color := widget.settings.colors.name
+	value_color := widget.settings.colors.value
 	if widget.settings.random {
-		err := resultTemplate.Execute(resultBuffer, map[string]string{
-			"nameColor":     widget.settings.colors.random_name,
-			"valueColor":    widget.settings.colors.random_value,
-			"pokemon_name":  pokemon_name,
-			"genus":         pokemon_genus,
-			"pokemon_id":    strconv.Itoa(spec.ID),
-			"pokemon_types": pokemon_types,
-			"experience":    strconv.Itoa(poke.BaseExperience),
-			"size":          fmt.Sprintf("%.2f / %.2f", float64(poke.Height)/10.0, float64(poke.Weight)/10.0),
-			"text":          pokemon_text,
-		})
-	} else {
-		err := resultTemplate.Execute(resultBuffer, map[string]string{
-			"nameColor":     widget.settings.colors.name,
-			"valueColor":    widget.settings.colors.value,
-			"pokemon_name":  pokemon_name,
-			"genus":         pokemon_genus,
-			"pokemon_id":    strconv.Itoa(spec.ID),
-			"pokemon_types": pokemon_types,
-			"experience":    strconv.Itoa(poke.BaseExperience),
-			"size":          fmt.Sprintf("%.2f / %.2f", float64(poke.Height)/10.0, float64(poke.Weight)/10.0),
-			"text":          pokemon_text,
-		})
+		name_color = widget.settings.colors.random_name
+		value_color = widget.settings.colors.random_value
 	}
+	err := resultTemplate.Execute(resultBuffer, map[string]string{
+		"nameColor":     name_color,
+		"valueColor":    value_color,
+		"pokemon_name":  pokemon_name,
+		"genus":         pokemon_genus,
+		"pokemon_id":    strconv.Itoa(spec.ID),
+		"pokemon_types": pokemon_types,
+		"experience":    strconv.Itoa(poke.BaseExperience),
+		"size":          fmt.Sprintf("%.2f / %.2f", float64(poke.Height)/10.0, float64(poke.Weight)/10.0),
+		"text":          pokemon_text,
+	})
 
 	if err != nil {
 		widget.result = err.Error()
