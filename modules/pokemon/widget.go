@@ -269,8 +269,13 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	}
 
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
-		"nameColor":     widget.settings.colors.name,
-		"valueColor":    widget.settings.colors.value,
+		if widget.settings.random {
+			"nameColor":     widget.settings.colors.random_name,
+			"valueColor":    widget.settings.colors.random_value,
+		} else {
+			"nameColor":     widget.settings.colors.name,
+			"valueColor":    widget.settings.colors.value,
+		}
 		"pokemon_name":  pokemon_name,
 		"genus":         pokemon_genus,
 		"pokemon_id":    strconv.Itoa(spec.ID),

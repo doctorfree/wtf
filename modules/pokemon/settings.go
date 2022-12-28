@@ -13,8 +13,10 @@ const (
 )
 
 type colors struct {
-	name  string
-	value string
+	name         string
+	random_name  string
+	value        string
+	random_value string
 }
 
 type Settings struct {
@@ -48,7 +50,9 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 	}
 
 	settings.colors.name = ymlConfig.UString("colors.name", "blue")
-	settings.colors.value = ymlConfig.UString("colors.value", "white")
+	settings.colors.random_name = ymlConfig.UString("colors.random_name", "lightblue")
+	settings.colors.value = ymlConfig.UString("colors.value", "yellow")
+	settings.colors.random_value = ymlConfig.UString("colors.random_value", "cyan")
 
 	settings.SetDocumentationPath("pokemon")
 
