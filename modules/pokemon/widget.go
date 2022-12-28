@@ -66,6 +66,7 @@ func (widget *Widget) pokemon() {
 	id_config := widget.settings.pokemon_id
 	name_config := widget.settings.pokemon_name
 
+	widget.settings.RefreshInterval = widget.settings.staticInterval
 	if widget.settings.random {
 		name_config = ""
 		rand.Seed(time.Now().UnixNano())
@@ -352,7 +353,7 @@ func (widget *Widget) ToggleRandom() {
 	if widget.settings.random {
 		widget.settings.random = false
 		// Restore refreshInterval config when in static mode
-		widget.settings.RefreshInterval = widget.settings.interval
+		widget.settings.RefreshInterval = widget.settings.staticInterval
 	} else {
 		widget.settings.random = true
 		// Ignore refreshInterval config when in random mode

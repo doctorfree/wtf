@@ -28,7 +28,7 @@ type Settings struct {
 	pokemon_name   string
 	random         bool
 	language       string
-	interval       time.Duration
+	staticInterval time.Duration
 	randomInterval time.Duration
 	requestTimeout int
 	attributes     []interface{} `help:"Defines what data to display and the order." values:"'size', 'experience', 'genus', and/or 'text'"`
@@ -43,8 +43,8 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 		pokemon_name:   ymlConfig.UString("pokemon_name", ""),
 		random:         ymlConfig.UBool("random", true),
 		language:       ymlConfig.UString("language", "en"),
-		interval:       cfg.ParseTimeString(ymlConfig, "refreshInterval", "60s"),
-		randomInterval: cfg.ParseTimeString(ymlConfig, "randomInterval", "60s"),
+		staticInterval: cfg.ParseTimeString(ymlConfig, "staticInterval", "60s"),
+		randomInterval: cfg.ParseTimeString(ymlConfig, "randomInterval", "10s"),
 		requestTimeout: ymlConfig.UInt("timeout", 30),
 		attributes:     ymlConfig.UList("attributes"),
 	}
@@ -53,6 +53,12 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 	settings.colors.random_name = ymlConfig.UString("colors.random_name", "lightblue")
 	settings.colors.value = ymlConfig.UString("colors.value", "yellow")
 	settings.colors.random_value = ymlConfig.UString("colors.random_value", "cyan")
+
+	if random {
+		settings.Common.RefreshInterval = settings.randomInterval
+	} else {
+		settings.Common.RefreshInterval = settings.staticInterval
+	}
 
 	settings.SetDocumentationPath("pokemon")
 
