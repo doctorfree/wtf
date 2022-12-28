@@ -41,9 +41,9 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 	}
 
 	if widget.settings.random {
-		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
+		widget.settings.RefreshInterval = widget.settings.randomInterval
 	} else {
-		widget.settings.Common.RefreshInterval = widget.settings.staticInterval
+		widget.settings.RefreshInterval = widget.settings.staticInterval
 	}
 	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
 	widget.SetRenderFunction(widget.Refresh)
@@ -71,12 +71,12 @@ func (widget *Widget) pokemon() {
 	id_config := widget.settings.pokemon_id
 	name_config := widget.settings.pokemon_name
 
-	widget.settings.Common.RefreshInterval = widget.settings.staticInterval
+	widget.settings.RefreshInterval = widget.settings.staticInterval
 	if widget.settings.random {
 		name_config = ""
 		rand.Seed(time.Now().UnixNano())
 		id_config = rand.Intn(905) + 1
-		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
+		widget.settings.RefreshInterval = widget.settings.randomInterval
 	}
 	idstr := strconv.Itoa(id_config)
 
@@ -306,10 +306,10 @@ func (widget *Widget) ToggleRandom() {
 
 	if widget.settings.random {
 		widget.settings.random = false
-		widget.settings.Common.RefreshInterval = widget.settings.staticInterval
+		widget.settings.RefreshInterval = widget.settings.staticInterval
 	} else {
 		widget.settings.random = true
-		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
+		widget.settings.RefreshInterval = widget.settings.randomInterval
 	}
 
 	widget.settings.pokemon_name = ""

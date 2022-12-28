@@ -55,9 +55,9 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 	settings.colors.random_value = ymlConfig.UString("colors.random_value", "cyan")
 
 	if settings.random {
-		settings.Common.RefreshInterval = settings.randomInterval
+		settings.RefreshInterval = settings.randomInterval
 	} else {
-		settings.Common.RefreshInterval = settings.staticInterval
+		settings.RefreshInterval = settings.staticInterval
 	}
 
 	settings.SetDocumentationPath("pokemon")
