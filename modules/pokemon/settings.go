@@ -54,7 +54,7 @@ func NewSettingsFromYAML(name string, ymlConfig *config.Config, globalConfig *co
 	settings.colors.value = ymlConfig.UString("colors.value", "yellow")
 	settings.colors.random_value = ymlConfig.UString("colors.random_value", "cyan")
 
-	if random {
+	if settings.random {
 		settings.Common.RefreshInterval = settings.randomInterval
 	} else {
 		settings.Common.RefreshInterval = settings.staticInterval
