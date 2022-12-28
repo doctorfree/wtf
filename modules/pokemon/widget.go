@@ -19,8 +19,6 @@ import (
 type Widget struct {
 	view.ScrollableWidget
 
-	RefreshInterval  time.Duration
-
 	result   string
 	settings *Settings
 	timeout  time.Duration
@@ -43,9 +41,9 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 	}
 
 	if widget.settings.random {
-		widget.RefreshInterval = widget.settings.randomInterval
+		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
 	} else {
-		widget.RefreshInterval = widget.settings.staticInterval
+		widget.settings.Common.RefreshInterval = widget.settings.staticInterval
 	}
 	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
 	widget.SetRenderFunction(widget.Refresh)
@@ -73,14 +71,12 @@ func (widget *Widget) pokemon() {
 	id_config := widget.settings.pokemon_id
 	name_config := widget.settings.pokemon_name
 
-//	widget.settings.Common.RefreshInterval = widget.settings.staticInterval
-	widget.RefreshInterval = widget.settings.staticInterval
+	widget.settings.Common.RefreshInterval = widget.settings.staticInterval
 	if widget.settings.random {
 		name_config = ""
 		rand.Seed(time.Now().UnixNano())
 		id_config = rand.Intn(905) + 1
-//		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
-		widget.RefreshInterval = widget.settings.randomInterval
+		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
 	}
 	idstr := strconv.Itoa(id_config)
 
@@ -213,68 +209,17 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 		}
 	}
 
-	//	colorReset := "\033[0m"
-	//  colorRed := "\033[31m"
-	//  colorGreen := "\033[32m"
-	//  colorYellow := "\033[33m"
-	//  colorBlue := "\033[34m"
-	//  colorPurple := "\033[35m"
-	//  colorCyan := "\033[36m"
-	//  colorWhite := "\033[37m"
-
 	pokemon_types := ""
 	poketype := ""
-	//	color := 7
 	first := false
 	for i := range poke.Types {
 		poketype = strings.ToUpper(poke.Types[i].Type.Name)
-		//		switch poketype {
-		//		case "NORMAL":
-		//			color=7
-		//		case "FIRE":
-		//			color=9
-		//		case "WATER":
-		//			color=12
-		//		case "ELECTRIC":
-		//			color=11
-		//		case "GRASS":
-		//			color=10
-		//		case "ICE":
-		//			color=14
-		//		case "FIGHTING":
-		//			color=1
-		//		case "POISON":
-		//			color=5
-		//		case "GROUND":
-		//			color=11
-		//		case "FLYING":
-		//			color=6
-		//		case "PSYCHIC":
-		//			color=13
-		//		case "BUG":
-		//			color=2
-		//		case "ROCK":
-		//			color=3
-		//		case "GHOST":
-		//			color=4
-		//		case "DRAGON":
-		//			color=4
-		//		case "DARK":
-		//			color=3
-		//		case "STEEL":
-		//			color=8
-		//		case "FAIRY":
-		//			color=13
-		//		default:
-		//			color=7
-		//		}
 
 		if first {
 			pokemon_types += " "
 		} else {
 			first = true
 		}
-		//		pokemon_types += "[7;38;5;" + strconv.Itoa(color) + "m" + poketype + "[0m"
 		pokemon_types += poketype
 	}
 
@@ -361,14 +306,10 @@ func (widget *Widget) ToggleRandom() {
 
 	if widget.settings.random {
 		widget.settings.random = false
-		// Restore refreshInterval config when in static mode
-//		widget.settings.Common.RefreshInterval = widget.settings.staticInterval
-		widget.RefreshInterval = widget.settings.staticInterval
+		widget.settings.Common.RefreshInterval = widget.settings.staticInterval
 	} else {
 		widget.settings.random = true
-		// Ignore refreshInterval config when in random mode
-//		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
-		widget.RefreshInterval = widget.settings.randomInterval
+		widget.settings.Common.RefreshInterval = widget.settings.randomInterval
 	}
 
 	widget.settings.pokemon_name = ""
