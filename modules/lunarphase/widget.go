@@ -52,6 +52,17 @@ func (widget *Widget) Refresh() {
 	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
 }
 
+func (widget *Widget) RefreshTitle() {
+
+	if !widget.settings.Enabled {
+		widget.View.Clear()
+		return
+	}
+	widget.settings.Common.Title = widget.titleBase + " [" + widget.day + "]"
+
+	widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, widget.result, false })
+}
+
 // this method reads the config and calls wttr.in for lunar phase
 func (widget *Widget) lunarPhase() {
 	client := &http.Client{
@@ -111,7 +122,7 @@ func (widget *Widget) PrevWeek() {
 func (widget *Widget) setDay(ts time.Time) {
 	widget.date = ts
 	widget.day = widget.date.Format(dateFormat)
-//	widget.Refresh()
+	widget.RefreshTitle()
 }
 
 // Open nineplanets.org in a browser (Enter / 'o')
