@@ -44,6 +44,8 @@ func (widget *Widget) Refresh() {
 	widget.lunarPhase()
 
 	if !widget.settings.Enabled {
+		widget.settings.Common.Title = widget.titleBase + " [ Disabled ]"
+		widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, "", false })
 		widget.View.Clear()
 		return
 	}
@@ -53,8 +55,9 @@ func (widget *Widget) Refresh() {
 }
 
 func (widget *Widget) RefreshTitle() {
-
 	if !widget.settings.Enabled {
+		widget.settings.Common.Title = widget.titleBase + " [ Disabled ]"
+		widget.Redraw(func() (string, string, bool) { return widget.CommonSettings().Title, "", false })
 		widget.View.Clear()
 		return
 	}
@@ -133,7 +136,6 @@ func (widget *Widget) OpenMoonPhase() {
 
 // Disable/Enable the widget (Ctrl-D)
 func (widget *Widget) DisableWidget() {
-
 	if widget.settings.Enabled {
 		widget.settings.Enabled = false
 	} else {
