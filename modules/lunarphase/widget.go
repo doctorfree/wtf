@@ -111,6 +111,7 @@ func (widget *Widget) PrevWeek() {
 func (widget *Widget) setDay(ts time.Time) {
 	widget.date = ts
 	widget.day = widget.date.Format(dateFormat)
+	time.Sleep(time.Second * 1)
 	widget.Refresh()
 }
 
