@@ -142,5 +142,5 @@ func (widget *Widget) DisableWidget() {
 		widget.settings.Enabled = true
 	}
 
-	widget.Refresh()
+	widget.RefreshTitle()
 }
