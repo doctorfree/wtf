@@ -15,6 +15,7 @@ import (
 type Widget struct {
 	view.ScrollableWidget
 
+	current   bool
 	day       string
 	date      time.Time
 	last      string
@@ -22,6 +23,7 @@ type Widget struct {
 	settings  *Settings
 	timeout   time.Duration
 	titleBase string
+	today     string
 }
 
 func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.Pages, settings *Settings) *Widget {
@@ -30,11 +32,12 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 		settings:         settings,
 	}
 
-	widget.titleBase = widget.settings.Title
-	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
+	widget.current = true
 	widget.date = time.Now()
 	widget.day = widget.date.Format(dateFormat)
 	widget.last = ""
+	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
+	widget.titleBase = widget.settings.Title
 
 	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
@@ -43,6 +46,10 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 }
 
 func (widget *Widget) Refresh() {
+	if widget.current {
+		widget.date = time.Now()
+		widget.day = widget.date.Format(dateFormat)
+	}
 	if widget.day != widget.last {
 		widget.lunarPhase()
 	}
@@ -105,31 +112,34 @@ func (widget *Widget) lunarPhase() {
 
 // NextDay shows the next day's lunar phase (KeyRight / 'n')
 func (widget *Widget) NextDay() {
+	widget.current = false
 	tomorrow := widget.date.AddDate(0, 0, 1)
 	widget.setDay(tomorrow)
 }
 
 // NextWeek shows the next week's lunar phase (KeyUp / 'N')
 func (widget *Widget) NextWeek() {
+	widget.current = false
 	nextweek := widget.date.AddDate(0, 0, 7)
 	widget.setDay(nextweek)
 }
 
 // PrevDay shows the previous day's lunar phase (KeyLeft / 'p')
 func (widget *Widget) PrevDay() {
+	widget.current = false
 	yesterday := widget.date.AddDate(0, 0, -1)
 	widget.setDay(yesterday)
 }
 
 // Today shows the current day's lunar phase ('t')
 func (widget *Widget) Today() {
-	widget.date = time.Now()
-	widget.day = widget.date.Format(dateFormat)
-	widget.RefreshTitle()
+	widget.current = true
+	widget.Refresh()
 }
 
 // PrevWeek shows the previous week's lunar phase (KeyDown / 'P')
 func (widget *Widget) PrevWeek() {
+	widget.current = false
 	lastweek := widget.date.AddDate(0, 0, -7)
 	widget.setDay(lastweek)
 }
