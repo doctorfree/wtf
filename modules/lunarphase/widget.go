@@ -17,6 +17,7 @@ type Widget struct {
 
 	day       string
 	date      time.Time
+	last      string
 	result    string
 	settings  *Settings
 	timeout   time.Duration
@@ -33,6 +34,7 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
 	widget.date = time.Now()
 	widget.day = widget.date.Format(dateFormat)
+	widget.last = ""
 
 	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
@@ -41,7 +43,9 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 }
 
 func (widget *Widget) Refresh() {
-	widget.lunarPhase()
+	if widget.day != widget.last {
+		widget.lunarPhase()
+	}
 
 	if !widget.settings.Enabled {
 		widget.settings.Common.Title = widget.titleBase + " " + widget.day + " [ Disabled ]"
@@ -95,6 +99,7 @@ func (widget *Widget) lunarPhase() {
 		return
 	}
 
+	widget.last = widget.day
 	widget.result = strings.TrimSpace(wtf.ASCIItoTviewColors(string(contents)))
 }
 
