@@ -116,6 +116,13 @@ func (widget *Widget) PrevDay() {
 	widget.setDay(yesterday)
 }
 
+// Today shows the current day's lunar phase ('t')
+func (widget *Widget) Today() {
+	widget.date = time.Now()
+	widget.day = widget.date.Format(dateFormat)
+	widget.RefreshTitle()
+}
+
 // PrevWeek shows the previous week's lunar phase (KeyDown / 'P')
 func (widget *Widget) PrevWeek() {
 	lastweek := widget.date.AddDate(0, 0, -7)
