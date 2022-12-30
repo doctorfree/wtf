@@ -138,9 +138,9 @@ func (widget *Widget) OpenMoonPhase() {
 func (widget *Widget) DisableWidget() {
 	if widget.settings.Enabled {
 		widget.settings.Enabled = false
+		widget.RefreshTitle()
 	} else {
 		widget.settings.Enabled = true
+		widget.Refresh()
 	}
-
-	widget.RefreshTitle()
 }
