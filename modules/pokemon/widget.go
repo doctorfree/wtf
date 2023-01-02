@@ -2,8 +2,8 @@ package pokemon
 
 import (
 	"bytes"
-    "encoding/json"
-    "fmt"
+	"encoding/json"
+	"fmt"
 	"math/rand"
 	"net/http"
 	"strconv"
@@ -21,9 +21,10 @@ type Widget struct {
 
 	result   string
 	settings *Settings
+	timeout  time.Duration
 }
 
-var attLookup = map[string]string {
+var attLookup = map[string]string{
 	"pokemon_name":  "Species Name",
 	"genus":         "Species Genus",
 	"pokemon_id":    "Species ID",
@@ -39,6 +40,12 @@ func NewWidget(tviewApp *tview.Application, redrawChan chan bool, pages *tview.P
 		settings:         settings,
 	}
 
+	if widget.settings.random {
+		widget.settings.RefreshInterval = widget.settings.randomInterval
+	} else {
+		widget.settings.RefreshInterval = widget.settings.staticInterval
+	}
+	widget.timeout = time.Duration(widget.settings.requestTimeout) * time.Second
 	widget.SetRenderFunction(widget.Refresh)
 	widget.initializeKeyboardControls()
 
@@ -57,11 +64,14 @@ func (widget *Widget) Refresh() {
 }
 
 func (widget *Widget) pokemon() {
-	client := &http.Client{}
+	client := &http.Client{
+		Timeout: widget.timeout,
+	}
 
 	id_config := widget.settings.pokemon_id
 	name_config := widget.settings.pokemon_name
 
+	widget.settings.RefreshInterval = widget.settings.staticInterval
 	if widget.settings.random {
 		name_config = ""
 		rand.Seed(time.Now().UnixNano())
@@ -92,7 +102,7 @@ func (widget *Widget) pokemon() {
 	}
 	defer func() { _ = response.Body.Close() }()
 
-    var pokemonObject Pokemon
+	var pokemonObject Pokemon
 	err = json.NewDecoder(response.Body).Decode(&pokemonObject)
 	if err != nil {
 		widget.result = err.Error()
@@ -114,7 +124,7 @@ func (widget *Widget) pokemon() {
 	}
 	defer func() { _ = spresponse.Body.Close() }()
 
-    var speciesObject PokemonSpecies
+	var speciesObject PokemonSpecies
 	err = json.NewDecoder(spresponse.Body).Decode(&speciesObject)
 	if err != nil {
 		widget.result = err.Error()
@@ -148,21 +158,21 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	pokemon_name := "Unknown"
 	en_pokemon_name := "Unknown"
 	for i := range spec.Names {
-        if spec.Names[i].Language.Name == langconfig {
+		if spec.Names[i].Language.Name == langconfig {
 			pokemon_name = spec.Names[i].Name
-        }
-        if spec.Names[i].Language.Name == "en" {
+		}
+		if spec.Names[i].Language.Name == "en" {
 			en_pokemon_name = spec.Names[i].Name
-        }
-    }
+		}
+	}
 	if pokemon_name == "Unknown" {
 		langconfig = "en"
-	    for i := range spec.Names {
-            if spec.Names[i].Language.Name == langconfig {
-			    pokemon_name = spec.Names[i].Name
+		for i := range spec.Names {
+			if spec.Names[i].Language.Name == langconfig {
+				pokemon_name = spec.Names[i].Name
 				en_pokemon_name = pokemon_name
-            }
-        }
+			}
+		}
 	}
 	widget.settings.pokemon_en = en_pokemon_name
 	widget.settings.pokemon_id = spec.ID
@@ -170,33 +180,33 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	langconfig = widget.settings.language
 	pokemon_genus := "Unknown"
 	for i := range spec.Genera {
-        if spec.Genera[i].Language.Name == langconfig {
+		if spec.Genera[i].Language.Name == langconfig {
 			pokemon_genus = spec.Genera[i].Genus
-        }
-    }
+		}
+	}
 	if pokemon_genus == "Unknown" {
 		langconfig = "en"
-	    for i := range spec.Genera {
-            if spec.Genera[i].Language.Name == langconfig {
-			    pokemon_genus = spec.Genera[i].Genus
-            }
-        }
+		for i := range spec.Genera {
+			if spec.Genera[i].Language.Name == langconfig {
+				pokemon_genus = spec.Genera[i].Genus
+			}
+		}
 	}
 
 	langconfig = widget.settings.language
 	pokemon_text := "\nUnknown"
 	for i := range spec.FlavorTextEntries {
-        if spec.FlavorTextEntries[i].Language.Name == langconfig {
+		if spec.FlavorTextEntries[i].Language.Name == langconfig {
 			pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
-        }
-    }
+		}
+	}
 	if pokemon_text == "\nUnknown" {
 		langconfig = "en"
-	    for i := range spec.FlavorTextEntries {
-            if spec.FlavorTextEntries[i].Language.Name == langconfig {
-			    pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
-            }
-        }
+		for i := range spec.FlavorTextEntries {
+			if spec.FlavorTextEntries[i].Language.Name == langconfig {
+				pokemon_text = "\n" + spec.FlavorTextEntries[i].FlavorText
+			}
+		}
 	}
 
 	pokemon_types := ""
@@ -204,24 +214,31 @@ func (widget *Widget) setResult(poke *Pokemon, spec *PokemonSpecies) {
 	first := false
 	for i := range poke.Types {
 		poketype = strings.ToUpper(poke.Types[i].Type.Name)
+
 		if first {
 			pokemon_types += " "
 		} else {
 			first = true
 		}
 		pokemon_types += poketype
-    }
+	}
 
+	name_color := widget.settings.colors.name
+	value_color := widget.settings.colors.value
+	if widget.settings.random {
+		name_color = widget.settings.colors.random_name
+		value_color = widget.settings.colors.random_value
+	}
 	err := resultTemplate.Execute(resultBuffer, map[string]string{
-		"nameColor":      widget.settings.colors.name,
-		"valueColor":     widget.settings.colors.value,
-		"pokemon_name":   pokemon_name,
-		"genus":          pokemon_genus,
-		"pokemon_id":     strconv.Itoa(spec.ID),
-		"pokemon_types":  pokemon_types,
-		"experience":     strconv.Itoa(poke.BaseExperience),
-		"size":           fmt.Sprintf("%.2f / %.2f", float64(poke.Height) / 10.0, float64(poke.Weight) / 10.0),
-		"text":           pokemon_text,
+		"nameColor":     name_color,
+		"valueColor":    value_color,
+		"pokemon_name":  pokemon_name,
+		"genus":         pokemon_genus,
+		"pokemon_id":    strconv.Itoa(spec.ID),
+		"pokemon_types": pokemon_types,
+		"experience":    strconv.Itoa(poke.BaseExperience),
+		"size":          fmt.Sprintf("%.2f / %.2f", float64(poke.Height)/10.0, float64(poke.Weight)/10.0),
+		"text":          pokemon_text,
 	})
 
 	if err != nil {
@@ -289,11 +306,9 @@ func (widget *Widget) ToggleRandom() {
 
 	if widget.settings.random {
 		widget.settings.random = false
-		// Restore refreshInterval config when in static mode
-		widget.settings.RefreshInterval = widget.settings.interval
+		widget.settings.RefreshInterval = widget.settings.staticInterval
 	} else {
 		widget.settings.random = true
-		// Set refreshInterval to randomInterval config when in random mode
 		widget.settings.RefreshInterval = widget.settings.randomInterval
 	}
 
